@@ -1,0 +1,404 @@
+{
+    "campus": {
+        "id": "aiims-jammu-campus",
+        "name": "AIIMS Jammu",
+        "areaType": "Academic Campus",
+        "location": "Vijaypur, Bari Kamlia, J&K, 181134",
+        "helpdesk": {
+            "OPD": {
+                "Patient Care Manager": "9541928219",
+                "Screening OPD Helpdesk": "9541928215"
+            },
+            "Emergency": {
+                "Patient Care Manager": "9541928218",
+                "Nursing Supervisor": "9541928247"
+            }
+        },
+        "departments": [
+            {
+                "id": "dept-anesthesia",
+                "name": "Anesthesia",
+                "website": "https://www.aiimsjammu.edu.in/anesthesiology-staff/",
+                "location": {
+                    "building": "Diagnostic Block",
+                    "tower": "A",
+                    "floor": 3,
+                    "zone": "OPD Wing"
+                },
+                "faculty": [
+                    {
+                        "id": "dr-shruti-sharma",
+                        "name": "Dr. Shruti Sharma",
+                        "designation": "Additional Professor",
+                        "specialization": "Anesthesia",
+                        "website": "https://www.aiimsjammu.edu.in/dr-shruti-sharma/",
+                        "about": "Specialist in Anesthesia at Palliative Care with expertise in pain management and surgical sedation.",
+                        "contact": {
+                            "email": "shruti.sharma@aiimsjammu.edu.in",
+                            "phone": "+918587096914"
+                        },
+                        "room": {
+                            "number": "327",
+                            "type": "Doctor Office",
+                            "venue": "Consultation Room – Anesthesia",
+                            "floor": 3,
+                            "building": "Diagnostic Block",
+                            "coordinates": {
+                                "cartesian": {
+                                    "x": 111,
+                                    "y": 121,
+                                    "center": {
+                                        "x": 111.2,
+                                        "y": 121.8
+                                    },
+                                    "door": {
+                                        "x": 103,
+                                        "y": 117
+                                    }
+                                },
+                                "geo": {
+                                    "latitude": 32.56357809826247,
+                                    "longitude": 75.03619638705192
+                                }
+                            },
+                            "features": {
+                                "capacity": 1,
+                                "areaSqFt": 200,
+                                "flooring": "Tiled",
+                                "door": {
+                                    "type": "Single",
+                                    "motion": "Push-Pull"
+                                },
+                                "utilities": {
+                                    "powerBackup": true,
+                                    "lighting": "LED",
+                                    "temperatureControl": "Central AC"
+                                }
+                            },
+                            "accessibility": {
+                                "isWheelchairAccessible": true,
+                                "accessibilityFeatures": [
+                                    "Elevator Access",
+                                    "Braille Signage",
+                                    "Wide Entrance"
+                                ],
+                                "nearestAccessPoints": {
+                                    "lifts": [
+                                        {
+                                            "name": "Lift-1",
+                                            "distanceMeters": 32,
+                                            "coordinates": {
+                                                "x": 94,
+                                                "y": 41
+                                            }
+                                        }
+                                    ],
+                                    "stairs": [
+                                        {
+                                            "name": "Stairs-2",
+                                            "distanceMeters": 30,
+                                            "coordinates": {
+                                                "x": 8,
+                                                "y": 55
+                                            }
+                                        }
+                                    ],
+                                    "emergencyExits": [
+                                        {
+                                            "name": "Emergency Exit - North Wing",
+                                            "distanceMeters": 45,
+                                            "coordinates": {
+                                                "x": 5,
+                                                "y": 70
+                                            }
+                                        }
+                                    ],
+                                    "ramps": [],
+                                    "entrances": [
+                                        {
+                                            "name": "North Entrance",
+                                            "distanceMeters": 120,
+                                            "geo": {
+                                                "latitude": 28.5437,
+                                                "longitude": 77.1876
+                                            }
+                                        }
+                                    ]
+                                },
+                                "amenities": [
+                                    "WiFi",
+                                    "Drinking Water",
+                                    "Restroom Nearby",
+                                    "Fire Extinguisher"
+                                ]
+                            }
+                        },
+                        "availability": {
+                            "operatingHours": {
+                                "mondayToFriday": {
+                                    "start": "10:00",
+                                    "end": "14:00"
+                                },
+                                "saturday": {
+                                    "start": "10:00",
+                                    "end": "12:00"
+                                },
+                                "sunday": "Closed"
+                            },
+                            "availabilityNote": "Available only on working days during OPD hours"
+                        },
+                        "servicesOffered": [
+                            "Heart Checkup",
+                            "Echocardiogram",
+                            "Pain Management",
+                            "Anesthesia Administration",
+                            "ICU Sedation Monitoring"
+                        ],
+                        "booking": {
+                            "enabled": true,
+                            "url": "https://booking.aiimsjammu.edu.in/room/327",
+                            "method": "Online Portal",
+                            "approvalRequired": true,
+                            "note": "Visitor pass required at entry gate. Booking needs admin approval."
+                        },
+                        "tags": [
+                            "anaesthesia",
+                            "faculty",
+                            "consultation",
+                            "female doctor",
+                            "room 327"
+                        ]
+                    },
+                    {
+                        "id": "dr-raksha-kundal",
+                        "name": "Dr. Raksha Kundal",
+                        "designation": "Associate Professor",
+                        "specialization": "Anesthesia",
+                        "website": "hhttps://www.aiimsjammu.edu.in/dr-raksha-kundal/",
+                        "about": "Specialist in Anesthesia at Palliative Care with expertise in pain management and surgical sedation.",
+                        "contact": {
+                            "email": "raksha.kundal@aiimsjammu.edu.in",
+                            "phone": "+918587096914"
+                        },
+                        "room": {
+                            "number": "136",
+                            "type": "Doctor Office",
+                            "venue": "Consultation Room – Anesthesia",
+                            "floor": 3,
+                            "building": "Diagnostic Block",
+                            "coordinates": {
+                                "cartesian": {
+                                    "x": 60,
+                                    "y": 66,
+                                    "center": {
+                                        "x": 59.6,
+                                        "y": 65.8
+                                    },
+                                    "door": {
+                                        "x": 65,
+                                        "y": 66
+                                    }
+                                },
+                                "geo": {
+                                    "latitude": 32.563758224519404,
+                                    "longitude": 75.03630318778376
+                                }
+                            },
+                            "features": {
+                                "capacity": 1,
+                                "areaSqFt": 200,
+                                "flooring": "Tiled",
+                                "door": {
+                                    "type": "Single",
+                                    "motion": "Push-Pull"
+                                },
+                                "utilities": {
+                                    "powerBackup": true,
+                                    "lighting": "LED",
+                                    "temperatureControl": "Central AC"
+                                }
+                            },
+                            "accessibility": {
+                                "isWheelchairAccessible": true,
+                                "accessibilityFeatures": [
+                                    "Elevator Access",
+                                    "Braille Signage",
+                                    "Wide Entrance"
+                                ],
+                                "nearestAccessPoints": {
+                                    "lifts": [],
+                                    "stairs": [],
+                                    "emergencyExits": [],
+                                    "ramps": [],
+                                    "entrances": []
+                                },
+                                "amenities": [
+                                    "WiFi",
+                                    "Drinking Water",
+                                    "Restroom Nearby",
+                                    "Fire Extinguisher"
+                                ]
+                            }
+                        },
+                        "availability": {
+                            "operatingHours": {
+                                "mondayToFriday": {
+                                    "start": "10:00",
+                                    "end": "14:00"
+                                },
+                                "saturday": {
+                                    "start": "10:00",
+                                    "end": "12:00"
+                                },
+                                "sunday": "Closed"
+                            },
+                            "availabilityNote": "Available only on working days during OPD hours"
+                        },
+                        "servicesOffered": [
+                            "Heart Checkup",
+                            "Echocardiogram",
+                            "Pain Management",
+                            "Anesthesia Administration",
+                            "ICU Sedation Monitoring"
+                        ],
+                        "booking": {
+                            "enabled": true,
+                            "url": "https://booking.aiimsjammu.edu.in/room/136",
+                            "method": "Online Portal",
+                            "approvalRequired": true,
+                            "note": "Visitor pass required at entry gate. Booking needs admin approval."
+                        },
+                        "tags": [
+                            "anaesthesia",
+                            "faculty",
+                            "consultation",
+                            "female doctor",
+                            "room 136"
+                        ]
+                    },
+                    {
+                        "id": "dr-sandeepika-dogra",
+                        "name": "Dr. Sandeepika Dogra",
+                        "designation": "Associate Professor",
+                        "specialization": "Anesthesia",
+                        "website": "https://www.aiimsjammu.edu.in/dr-raksha-kundal/",
+                        "about": "Specialist in Anesthesia at Palliative Care with expertise in pain management and surgical sedation.",
+                        "contact": {
+                            "email": "sandeepikadogra@aimmsjammu.com",
+                            "phone": "+918587096914"
+                        },
+                        "room": {
+                            "number": "327",
+                            "type": "Doctor Office",
+                            "venue": "Consultation Room – Anesthesia",
+                            "floor": 3,
+                            "building": "Diagnostic Block",
+                            "coordinates": {
+                                "cartesian": {
+                                    "x": 46,
+                                    "y": 50,
+                                    "center": {
+                                        "x": 45.6,
+                                        "y": 49.6
+                                    },
+                                    "door": {
+                                        "x": 39,
+                                        "y": 49
+                                    }
+                                },
+                                "geo": {
+                                    "latitude": 32.56406169548994,
+                                    "longitude": 75.03493731678059
+                                }
+                            },
+                            "features": {
+                                "capacity": 1,
+                                "areaSqFt": 200,
+                                "flooring": "Tiled",
+                                "door": {
+                                    "type": "Single",
+                                    "motion": "Push-Pull"
+                                },
+                                "utilities": {
+                                    "powerBackup": true,
+                                    "lighting": "LED",
+                                    "temperatureControl": "Central AC"
+                                }
+                            },
+                            "accessibility": {
+                                "isWheelchairAccessible": true,
+                                "accessibilityFeatures": [
+                                    "Elevator Access",
+                                    "Braille Signage",
+                                    "Wide Entrance"
+                                ],
+                                "nearestAccessPoints": {
+                                    "lifts": [
+                                        {
+                                            "name": "Lift-2",
+                                            "distance": 57,
+                                            "x": 171,
+                                            "y": 16
+                                        }
+                                    ],
+                                    "stairs": [
+                                        {
+                                            "name": "Stairs-1",
+                                            "distance": 14,
+                                            "x": 19,
+                                            "y": 25
+                                        }
+                                    ],
+                                    "emergencyExits": [],
+                                    "ramps": [],
+                                    "entrances": []
+                                },
+                                "amenities": [
+                                    "WiFi",
+                                    "Drinking Water",
+                                    "Restroom Nearby",
+                                    "Fire Extinguisher"
+                                ]
+                            }
+                        },
+                        "availability": {
+                            "operatingHours": {
+                                "mondayToFriday": {
+                                    "start": "10:00",
+                                    "end": "14:00"
+                                },
+                                "saturday": {
+                                    "start": "10:00",
+                                    "end": "12:00"
+                                },
+                                "sunday": "Closed"
+                            },
+                            "availabilityNote": "Available only on working days during OPD hours"
+                        },
+                        "servicesOffered": [
+                            "Heart Checkup",
+                            "Echocardiogram",
+                            "Pain Management",
+                            "Anesthesia Administration",
+                            "ICU Sedation Monitoring"
+                        ],
+                        "booking": {
+                            "enabled": true,
+                            "url": "https://booking.aiimsjammu.edu.in/room/327",
+                            "method": "Online Portal",
+                            "approvalRequired": true,
+                            "note": "Visitor pass required at entry gate. Booking needs admin approval."
+                        },
+                        "tags": [
+                            "anaesthesia",
+                            "faculty",
+                            "consultation",
+                            "female doctor",
+                            "room 327"
+                        ]
+                    }
+                ]
+            }
+        ]
+    }
+}

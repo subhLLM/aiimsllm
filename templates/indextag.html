@@ -1,0 +1,624 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aiims Jammu Building Assistant</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            background: linear-gradient(135deg, #007bff 0%, #3f8efc 100%);
+            color: #333;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh; /* Changed to min-height */
+        }
+
+        .container {
+            background-color: #ffffff;
+            padding: 25px; /* Adjusted padding */
+            border-radius: 16px;
+            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15); /* Enhanced shadow */
+            width: 100%;
+            max-width: 700px; /* Increased max-width */
+            height: 90vh; /* Adjusted height */
+            max-height: 800px; /* Added max-height */
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+        }
+
+        h1 {
+            text-align: center;
+            color: #196deb;
+            margin-top: 0; /* Removed top margin */
+            margin-bottom: 20px; /* Added bottom margin */
+        }
+
+        .chat-box {
+            margin-top: 0; /* Adjusted margin */
+            border-top: 1px solid #e0e0e0; /* Lighter border */
+            padding-top: 15px; /* Adjusted padding */
+            flex-grow: 1;
+            overflow-y: auto;
+            scrollbar-width: thin;
+            scrollbar-color: #007bff #f1f1f1; /* Scrollbar styling */
+        }
+
+        #conversation {
+            display: flex;
+            flex-direction: column;
+            gap: 15px; /* Increased gap */
+        }
+
+        .message-wrapper {
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .user-query, .bot-response {
+            padding: 12px 16px; /* Adjusted padding */
+            border-radius: 18px; /* Slightly more rounded */
+            max-width: 80%; /* Increased max-width */
+            word-wrap: break-word;
+            line-height: 1.5; /* Improved readability */
+            position: relative; /* For timestamp positioning */
+        }
+
+        .user-query {
+            background-color: #e6f3ff; /* Lighter blue */
+            align-self: flex-end; /* User messages on the right */
+            color: #0056b3;
+            font-weight: 500; /* Medium weight */
+             border-bottom-right-radius: 5px; /* Speech bubble effect */
+        }
+
+        .bot-response {
+            background-color: #f4f6f8; /* Lighter grey */
+            align-self: flex-start; /* Bot messages on the left */
+            color: #333;
+            border-bottom-left-radius: 5px; /* Speech bubble effect */
+        }
+        
+        .bot-response strong { /* Style for bold text (e.g., "Assistant:") */
+            color: #196deb;
+        }
+
+        .timestamp {
+            font-size: 10px; /* Smaller timestamp */
+            color: #888;
+            margin-top: 4px; /* Space above timestamp */
+        }
+
+        .user-query + .timestamp {
+            align-self: flex-end; /* Align with user message */
+            margin-right: 5px;
+        }
+
+        .bot-response + .timestamp {
+            align-self: flex-start; /* Align with bot message */
+            margin-left: 5px;
+        }
+
+
+        .input-container {
+            display: flex;
+            gap: 10px; /* Added gap */
+            align-items: center;
+            margin-top: 15px; /* Adjusted margin */
+            padding-top: 15px; /* Added padding */
+            border-top: 1px solid #e0e0e0; /* Lighter border */
+        }
+
+        .input-container input {
+            flex-grow: 1; /* Input takes available space */
+            padding: 14px; /* Increased padding */
+            border-radius: 25px; /* Pill shape */
+            border: 1px solid #ccc;
+            font-size: 16px;
+            outline: none;
+            transition: border-color 0.2s;
+        }
+        .input-container input:focus {
+            border-color: #007bff;
+        }
+
+        .input-container button {
+            background-color: #007bff;
+            color: white;
+            padding: 14px 22px; /* Adjusted padding */
+            border: none;
+            border-radius: 25px; /* Pill shape */
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: 500; /* Medium weight */
+            transition: background-color 0.2s;
+        }
+
+        .input-container button:hover:not(:disabled) {
+            background-color: #0056b3;
+        }
+        .input-container button:disabled {
+            background-color: #a0cfff; /* Lighter blue when disabled */
+            cursor: not-allowed;
+        }
+
+
+        .loading-indicator { /* Changed from .loading */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #007bff;
+            font-size: 14px;
+            padding: 10px 0;
+        }
+        .loading-indicator .spinner {
+            width: 20px;
+            height: 20px;
+            border: 3px solid rgba(0, 123, 255, 0.3);
+            border-top-color: #007bff;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin-right: 8px;
+        }
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+
+        .related-queries {
+            margin-top: 15px; /* Adjusted margin */
+            padding-top: 15px; /* Adjusted padding */
+            border-top: 1px dashed #ccc;
+            animation: fadeIn 0.4s ease-in-out;
+        }
+
+        .related-queries h3 {
+            color: #196deb;
+            margin-bottom: 10px; /* Adjusted margin */
+            font-size: 15px; /* Adjusted font size */
+        }
+
+        .related-queries ul {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px; /* Adjusted gap */
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .related-queries ul li {
+            background-color: #e6f0ff;
+            padding: 8px 16px; /* Adjusted padding */
+            border-radius: 20px; /* Pill shape */
+            cursor: pointer;
+            font-size: 13px; /* Adjusted font size */
+            color: #0056b3;
+            border: 1px solid #cce0ff;
+            transition: all 0.2s ease-in-out;
+        }
+
+        .related-queries ul li:hover {
+            background-color: #cce0ff;
+            transform: translateY(-2px); /* Slight lift effect */
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .chat-box::-webkit-scrollbar { width: 8px; }
+        .chat-box::-webkit-scrollbar-track { background: #f1f1f1; border-radius: 4px; }
+        .chat-box::-webkit-scrollbar-thumb { background: #007bff; border-radius: 4px; }
+        .chat-box::-webkit-scrollbar-thumb:hover { background: #0056b3; }
+        
+        .chat-footer {
+            color: #196deb;
+            margin-top: 15px; /* Adjusted margin */
+            text-align: center;
+            font-size: 12px; /* Adjusted font size */
+        }
+
+        .chat-controls {
+            display: flex;
+            justify-content: center;
+            gap: 12px; /* Adjusted gap */
+            margin-top: 12px; /* Adjusted margin */
+        }
+
+        .chat-controls button {
+            padding: 10px 18px; /* Adjusted padding */
+            border: none;
+            border-radius: 20px; /* Pill shape */
+            cursor: pointer;
+            font-size: 14px; /* Adjusted font size */
+            font-weight: 500;
+            transition: background-color 0.2s, transform 0.1s;
+        }
+        .chat-controls button:hover {
+            transform: translateY(-1px);
+        }
+        .chat-controls button.clear-chat {
+            background-color: #ffeff0; /* Lighter red */
+            color: #d32f2f;
+            border: 1px solid #ffcdd2;
+        }
+        .chat-controls button.clear-chat:hover {
+            background-color: #ffcdd2;
+        }
+         .chat-controls button.ask-another {
+            background-color: #e8f5e9; /* Lighter green */
+            color: #388e3c;
+            border: 1px solid #c8e6c9;
+        }
+        .chat-controls button.ask-another:hover {
+            background-color: #c8e6c9;
+        }
+
+        .error-message {
+            color: red;
+            text-align: center;
+            padding: 10px;
+            background-color: #ffebee;
+            border: 1px solid #ffcdd2;
+            border-radius: 8px;
+            margin-top: 10px;
+        }
+        #tagSuggestionsContainer {
+            margin-top: 10px;
+            background: #f9f9f9;
+            padding: 10px;
+            border-radius: 8px;
+            max-height: 150px;
+            overflow-y: auto;
+        }
+
+        /* Typing indicator for bot response */
+        .typing-indicator span {
+            height: 8px;
+            width: 8px;
+            background-color: #007bff;
+            border-radius: 50%;
+            display: inline-block;
+            margin: 0 2px;
+            animation: bounce 1.4s infinite ease-in-out both;
+        }
+        .typing-indicator span:nth-child(1) { animation-delay: -0.32s; }
+        .typing-indicator span:nth-child(2) { animation-delay: -0.16s; }
+        @keyframes bounce {
+            0%, 80%, 100% { transform: scale(0); }
+            40% { transform: scale(1.0); }
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Aiims Jammu Building Assistant</h1>
+        
+        <div class="chat-box" id="chatBox"> 
+            <div id="conversation"></div>
+        </div>
+
+        <div class="loading-indicator" id="loadingIndicator" style="display:none;">
+            <div class="spinner"></div>
+            <span>Loading...</span>
+        </div>
+        
+        <div class="error-message" id="errorMessage" style="display:none;"></div>
+
+        <div class="related-queries" id="relatedQueriesContainer" style="display:none;">
+            <div id="relatedQueriesContent"></div>
+        </div>
+
+        <div class="related-queries" id="tagSuggestionsContainer" style="display:none;">
+            <div id="tagSuggestionsContent"></div>
+        </div>
+
+
+        <p style="font-size: 13px; text-align: center; color: #555; margin-top:10px; margin-bottom: 5px;">
+            🌍 You can ask in any language.
+        </p>
+
+        <div class="input-container">
+            <input type="text" id="userQueryInput" placeholder="Ask something about the AiimsJammu building..." />
+            <button id="sendBtn">Ask</button>
+        </div>
+
+        <div class="chat-controls">
+            <button onclick="clearChat()" class="clear-chat" title="Clear chat history">🧼 Clear Chat</button>
+            <button onclick="focusInput()" class="ask-another" title="Focus on input field">🔁 Ask Another</button>
+        </div>
+        
+        <div class="chat-footer">
+            Powered by iWayPlus
+        </div>
+    </div>
+
+    <script>
+        const sendBtn = document.getElementById('sendBtn');
+        const userQueryInput = document.getElementById('userQueryInput');
+        const conversationDiv = document.getElementById('conversation');
+        const chatBox = document.getElementById('chatBox'); 
+        const relatedQueriesContainer = document.getElementById('relatedQueriesContainer');
+        const relatedQueriesContent = document.getElementById('relatedQueriesContent');
+        const loadingIndicator = document.getElementById('loadingIndicator');
+        const errorMessageDiv = document.getElementById('errorMessage');
+
+        function displayMessage(text, sender, isUser) {
+            const messageWrapper = document.createElement('div');
+            messageWrapper.classList.add('message-wrapper');
+
+            const messageDiv = document.createElement('div');
+            messageDiv.classList.add(isUser ? 'user-query' : 'bot-response');
+            
+            // For bot responses, we might stream content.
+            // For user messages, just set textContent.
+            if (isUser) {
+                messageDiv.textContent = text;
+            } else {
+                // Initial structure for bot message, will be populated by streaming
+                messageDiv.innerHTML = `<strong>${sender}:</strong> <span class="content"></span>`; 
+            }
+            
+            messageWrapper.appendChild(messageDiv);
+
+            const timestamp = new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+            const timestampDiv = document.createElement('div');
+            timestampDiv.classList.add('timestamp');
+            timestampDiv.textContent = timestamp;
+            messageWrapper.appendChild(timestampDiv);
+            
+            conversationDiv.appendChild(messageWrapper);
+            chatBox.scrollTop = chatBox.scrollHeight; // Scroll to bottom
+            return messageDiv; // Return the message div for streaming updates
+        }
+        
+        function convertUrlsToLinks(text) {
+            // Convert URLs to clickable links
+            const urlRegex = /(\b(https?|ftp|file):\/\/[-A-Z0-9+&@#\/%?=~_|!:,.;]*[-A-Z0-9+&@#\/%=~_|])|(\bwww\.[-A-Z0-9+&@#\/%?=~_|!:,.;]*[-A-Z0-9+&@#\/%=~_|])/ig;
+            let linkedText = text.replace(urlRegex, function(url) {
+                let fullUrl = url;
+                if (!url.match(/^https?:\/\//i)) {
+                    fullUrl = 'http://' + url;
+                }
+                return `<a href="${fullUrl}" target="_blank" style="color: #0056b3; text-decoration: underline;">${url}</a>`;
+            });
+
+            // Convert email addresses to mailto links
+            const emailRegex = /([a-zA-Z0-9._-]+@[a-zA-Z0-9._-]+\.[a-zA-Z0-9_-]+)/gi;
+            linkedText = linkedText.replace(emailRegex, '<a href="mailto:$1" style="color: #0056b3; text-decoration: underline;">$1</a>');
+            
+            return linkedText;
+        }
+
+        // Basic Markdown to HTML (Bold, Italic, Lists)
+        function applyBasicMarkdown(text) {
+            let html = text;
+            // Bold: **text** or __text__
+            html = html.replace(/\*\*(.*?)\*\*|__(.*?)__/g, '<strong>$1$2</strong>');
+            // Italic: *text* or _text_
+            html = html.replace(/\*(.*?)\*|_(.*?)_/g, '<em>$1$2</em>');
+            // Unordered lists: - item or * item
+            html = html.replace(/^\s*[-*]\s+(.*)/gm, '<li>$1</li>');
+            html = html.replace(/<\/li>\n<li>/g, '</li><li>'); // Fix newlines between list items
+            if (html.includes('<li>')) {
+                 html = `<ul>${html.replace(/<li>.*?<\/li>/g, (match) => match)}</ul>`;
+                 // Attempt to group consecutive LIs into ULs
+                 html = html.replace(/<\/ul>\s*<ul>/g, ''); // Merge adjacent ULs
+            }
+            // Ordered lists: 1. item
+            html = html.replace(/^\s*\d+\.\s+(.*)/gm, '<li>$1</li>'); // Convert to LI first
+             if (html.match(/<li>/) && html.match(/^\s*<ol>/) === null && html.match(/^\s*<ul>/) === null) { // Check if it looks like an ordered list start
+                // Heuristic: if we have LIs from numbered items but no OL tag yet
+                let olCount = 0;
+                html = html.replace(/<li>.*?<\/li>/g, (match) => { 
+                    if (olCount === 0) { olCount++; return `<ol>${match}`; }
+                    return match;
+                });
+                if (olCount > 0) html += '</ol>';
+                html = html.replace(/<\/ol>\s*<ol>/g, ''); // Merge adjacent OLs
+             }
+
+
+            // Newlines to <br> (but not inside list items directly)
+            // This is tricky with lists; ideally, LLM should use double newlines for paragraphs.
+            // For now, simple replacement outside of list tags.
+            const parts = html.split(/(<\/?(?:ul|ol|li)>)/g);
+            for (let i = 0; i < parts.length; i++) {
+                if (!parts[i].match(/<\/?(?:ul|ol|li)>/)) {
+                    parts[i] = parts[i].replace(/\n/g, '<br>');
+                }
+            }
+            html = parts.join('');
+            html = html.replace(/<br>\s*<br>/g, '<br>'); // Consolidate multiple breaks
+
+            return html;
+        }
+
+
+        function displayBotTypingIndicator(show = true) {
+            let typingDiv = document.getElementById('botTypingIndicator');
+            if (show) {
+                if (!typingDiv) {
+                    typingDiv = document.createElement('div');
+                    typingDiv.id = 'botTypingIndicator';
+                    typingDiv.classList.add('bot-response'); // Use same styling as bot message
+                    typingDiv.innerHTML = `<div class="typing-indicator"><strong>Assistant:</strong> <span></span><span></span><span></span></div>`;
+                    conversationDiv.appendChild(typingDiv);
+                    chatBox.scrollTop = chatBox.scrollHeight;
+                }
+            } else {
+                if (typingDiv) {
+                    typingDiv.remove();
+                }
+            }
+        }
+        
+        function displayRelatedQueries(queries) {
+            if (queries && queries.length > 0) {
+                relatedQueriesContent.innerHTML = '<h3>Suggested Follow-ups:</h3>';
+                const ul = document.createElement('ul');
+                queries.forEach(query => {
+                    const li = document.createElement('li');
+                    li.textContent = query;
+                    li.onclick = function() {
+                        userQueryInput.value = query;
+                        handleQuery(query); 
+                        relatedQueriesContainer.style.display = 'none'; // Hide after click
+                    };
+                    ul.appendChild(li);
+                });
+                relatedQueriesContent.appendChild(ul);
+                relatedQueriesContainer.style.display = 'block';
+            } else {
+                relatedQueriesContainer.style.display = 'none';
+                relatedQueriesContent.innerHTML = '';
+            }
+        }
+        // Show top hospital metadata tags dynamically
+        async function fetchAndShowTags() {
+            try {
+                const res = await fetch("/api/tag-counts");
+                if (!res.ok) throw new Error("Failed to load tags");
+                const data = await res.json();
+
+                const tagCounts = data.tag_counts || {};
+                const tagDiv = document.getElementById("tagSuggestionsContent");
+                tagDiv.innerHTML = '<h3>Popular Tags:</h3>';
+
+                const ul = document.createElement("ul");
+                Object.entries(tagCounts)
+                    .sort((a, b) => b[1] - a[1]) // sort descending
+                    .slice(0, 12)                // top 12 tags
+                    .forEach(([tag, count]) => {
+                        const li = document.createElement("li");
+                        li.textContent = `${tag.replace(/_/g, ' ')} (${count})`;
+                        li.onclick = () => {
+                            userQueryInput.value = tag.replace(/_/g, ' ');
+                            handleQuery(userQueryInput.value);
+                            document.getElementById("tagSuggestionsContainer").style.display = "none";
+                        };
+                        ul.appendChild(li);
+                    });
+
+                tagDiv.appendChild(ul);
+                document.getElementById("tagSuggestionsContainer").style.display = "block";
+
+            } catch (err) {
+                console.error("Tag fetch error:", err);
+            }
+        }
+
+        async function handleQuery(query) {
+            const metadataMarker = "###METADATA###";
+            if (!query.trim()) return;
+
+            errorMessageDiv.style.display = 'none'; // Hide previous errors
+            loadingIndicator.style.display = 'flex';
+            sendBtn.disabled = true;
+            userQueryInput.disabled = true; // Disable input field as well
+            relatedQueriesContainer.style.display = 'none'; // Hide previous related queries
+
+            displayMessage(query, "You", true);
+            userQueryInput.value = ""; // Clear input after sending
+
+            displayBotTypingIndicator(true); // Show typing indicator
+
+            let botMessageDiv; // Will hold the div for the bot's message stream
+
+            try {
+                const response = await fetch("chat",{
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json",
+                        "X-User-ID": "frontend_user_123"  // Optional: stable user ID
+                    },
+                    body: JSON.stringify({ message: query })
+                });
+
+                if (!response.ok) {
+                    const errorData = await response.json().catch(() => ({ detail: "Unknown server error." }));
+                    throw new Error(errorData.detail || `Server error: ${response.status}`);
+                }
+
+                const data = await response.json(); // 💡 Only parse once — don't stream
+
+                displayBotTypingIndicator(false); // Remove typing indicator
+
+                // Show assistant message bubble
+                const botMessageDiv = displayMessage("", "Assistant", false);
+                const botContentSpan = botMessageDiv.querySelector('.content');
+
+                // Fill in the assistant's response
+                botContentSpan.innerHTML = applyBasicMarkdown(convertUrlsToLinks(data.answer || "Sorry, no answer provided."));
+
+                // Optional: show related queries
+                if (data.related_queries && Array.isArray(data.related_queries)) {
+                    displayRelatedQueries(data.related_queries);
+                }
+
+            } catch (error) {
+                console.error('Error fetching data:', error);
+                displayBotTypingIndicator(false);
+
+                errorMessageDiv.textContent = `Error: ${error.message || "Could not connect to the assistant."}`;
+                errorMessageDiv.style.display = 'block';
+
+                const botMessageDiv = displayMessage("", "Assistant", false);
+                const botContentSpan = botMessageDiv.querySelector('.content');
+                if (botContentSpan) {
+                    botContentSpan.innerHTML = `<span style="color:red;">Sorry, I encountered an error. Please try again. (${error.message})</span>`;
+                }
+
+            } finally {
+                loadingIndicator.style.display = 'none';
+                sendBtn.disabled = false;
+                userQueryInput.disabled = false;
+                userQueryInput.focus();
+                chatBox.scrollTop = chatBox.scrollHeight;
+                fetchAndShowTags(); // Update tag suggestions after every query
+
+            }
+        }
+
+        sendBtn.addEventListener('click', function() {
+            handleQuery(userQueryInput.value);
+        });
+
+        userQueryInput.addEventListener('keydown', function(event) {
+            if (event.key === 'Enter') {
+                event.preventDefault(); // Prevents default form submission if wrapped in a form
+                handleQuery(userQueryInput.value);
+            }
+        });
+
+        function clearChat() {
+            conversationDiv.innerHTML = "";
+            relatedQueriesContainer.style.display = 'none';
+            relatedQueriesContent.innerHTML = "";
+            errorMessageDiv.style.display = 'none';
+            userQueryInput.focus();
+        }
+
+        function focusInput() {
+            userQueryInput.focus();
+        }
+        
+        // Initial focus
+        userQueryInput.focus();
+        // Show tags on page load
+        fetchAndShowTags();
+
+    </script>
+
+</body>
+</html>

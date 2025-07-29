@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RNI building Assistant</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            background: linear-gradient(135deg, #007bff 0%, #3f8efc 100%);
+            color: #333;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            background-color: #ffffff;
+            padding: 30px;
+            border-radius: 16px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 600px;
+            height: 80vh;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+        }
+
+        h1 {
+            text-align: center;
+            color: #196deb;
+        }
+
+        .chat-box {
+            margin-top: 20px;
+            border-top: 2px solid #ccc;
+            padding-top: 20px;
+            flex-grow: 1;
+            overflow-y: auto;
+            scrollbar-width: thin;
+        }
+
+        #conversation {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .user-query, .bot-response {
+            padding: 12px;
+            border-radius: 12px;
+            max-width: 75%;
+            word-wrap: break-word;
+        }
+
+        .user-query {
+            background-color: #e0f7fa;
+            align-self: flex-start;
+            color: #007bff;
+            font-weight: bold;
+        }
+
+        .bot-response {
+            background-color: #f1f1f1;
+            align-self: flex-end;
+            color: #555;
+        }
+
+        .input-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 20px;
+        }
+
+        .input-container input {
+            width: 80%;
+            padding: 12px;
+            border-radius: 12px;
+            border: 1px solid #ccc;
+            font-size: 16px;
+            outline: none;
+        }
+
+        .input-container button {
+            background-color: #007bff;
+            color: white;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 12px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        .input-container button:hover {
+            background-color: #0056b3;
+        }
+
+        .loading {
+            text-align: center;
+            color: #007bff;
+            font-size: 18px;
+        }
+
+        /* Related Queries Section */
+        .related-queries {
+            margin-top: 10px;
+            padding-top: 10px;
+            border-top: 1px dashed #ccc;
+            animation: fadeIn 0.4s ease-in-out;
+        }
+
+        .related-queries h3 {
+            color: #196deb;
+            margin-bottom: 8px;
+        }
+
+        .related-queries ul {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .related-queries ul li {
+            background-color: #e6f0ff;
+            padding: 8px 14px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-size: 14px;
+            color: #0056b3;
+            border: 1px solid #cce0ff;
+            transition: all 0.2s ease-in-out;
+        }
+
+        .related-queries ul li:hover {
+            background-color: #cce0ff;
+            transform: scale(1.05);
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+
+        /* Scrollbar Styling */
+        .chat-box::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        .chat-box::-webkit-scrollbar-track {
+            background: #f1f1f1;
+        }
+
+        .chat-box::-webkit-scrollbar-thumb {
+            background: #007bff;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>RNI Building Assistant</h1>
+        <div class="chat-box">
+            <div id="conversation"></div>
+        </div>
+
+        <div class="related-queries" id="relatedQueries"></div>
+
+        <p style="font-size: 14px; text-align: center; color: #666;">
+            🌍 You can ask in any language. I’ll translate it for you!
+        </p>
+
+        <div class="input-container">
+            <input type="text" id="userQuery" placeholder="Ask something about RNI building..." />
+            <button id="sendBtn">Ask</button>
+        </div>
+
+        <!-- Footer -->
+        <div class="chat-footer" style="color: #196deb; margin-top: 10px; text-align: center;">
+            Powered by iWayPlus
+        </div>
+
+        <div class="chat-controls" style="display: flex; justify-content: center; gap: 10px; margin-top: 15px;">
+            <button onclick="clearChat()" style="background-color: #f44336; color: white; padding: 10px 16px; border: none; border-radius: 10px; cursor: pointer;">
+                🧼 Clear Chat
+            </button>
+            <button onclick="focusInput()" style="background-color: #4CAF50; color: white; padding: 10px 16px; border: none; border-radius: 10px; cursor: pointer;">
+                🔁 Ask Another
+            </button>
+        </div>
+
+        <div class="loading" id="loading" style="display:none;">Loading...</div>
+    </div>
+
+    <script>
+        const sendBtn = document.getElementById('sendBtn');
+        const userQueryInput = document.getElementById('userQuery');
+        const conversationDiv = document.getElementById('conversation');
+        const relatedQueriesDiv = document.getElementById('relatedQueries');
+        const loadingDiv = document.getElementById('loading');
+
+        function displayUserQuery(query) {
+            const userMessageDiv = document.createElement('div');
+            userMessageDiv.classList.add('user-query');
+            userMessageDiv.textContent = `You: ${query}`;
+            conversationDiv.appendChild(userMessageDiv);
+            // ✅ Add timestamp just below the user message
+            const timestamp = new Date().toLocaleTimeString();
+            const timestampDiv = document.createElement('div');
+            timestampDiv.style.fontSize = "12px";
+            timestampDiv.style.color = "#aaa";
+            timestampDiv.style.textAlign = "left";
+            timestampDiv.textContent = timestamp;
+            conversationDiv.appendChild(timestampDiv);
+        }
+
+        function beautifyRawText(rawText) {
+            // Trim whitespace
+            let text = rawText.trim();
+
+            // Separate header (e.g., "Assistant:") from the rest if present
+            const headerEnd = text.indexOf(": ");
+            let header = "";
+            let body = text;
+            if (headerEnd !== -1) {
+                header = text.slice(0, headerEnd + 2);
+                body = text.slice(headerEnd + 2);
+            }
+            
+            // Insert a line break before each numbered step
+            // Assumes each numbered step (e.g., "1. ", "2. ") is preceded by a space.
+            // This replaces the preceding space with a <br> tag and the space.
+            body = body.replace(/(\n|^)(\d+\.\s|- |• )/g, "$1<br>$2");
+            
+            // Combine header and body with a line break after the header
+            const beautified = header + "<br>" + body;
+            return beautified;
+        }
+
+        function convertUrlsToLinks(text) {
+            return text
+                .replace(
+                    /((https?:\/\/|www\.)[^\s]+)/g, 
+                    (match) => {
+                        let url = match.startsWith("www.") ? "https://" + match : match;
+                        return `<a href="${url}" target="_blank" style="color: #007bff; text-decoration: none;">${match}</a>`;
+                    }
+                )
+                .replace(
+                    /([a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,})/g, 
+                    '<a href="mailto:$1" style="color: #007bff; text-decoration: none;">$1</a>'
+                );
+        }
+
+
+        function renderTextWithDelay(element, text, delay = 20) {
+            element.innerHTML = "";
+            let index = 0;
+
+            function renderNextChar() {
+                if (index < text.length) {
+                    // Append HTML safely without escaping tags
+                    element.innerHTML = text.substring(0, index + 1);
+                    index++;
+                    setTimeout(renderNextChar, delay);
+                }
+            }
+
+            renderNextChar();
+        }
+
+
+
+
+        function displayBotResponse(response) {
+            const botMessageDiv = document.createElement('div');
+            botMessageDiv.classList.add('bot-response');
+
+            // Get response text (default to an empty string if missing)
+            let responseText = response.answer || '';
+
+            // Convert URLs in the response to clickable links.
+            // Note: we perform this conversion before beautifying so that any <a> tags
+            // are already part of the text.
+            responseText = convertUrlsToLinks(responseText);
+
+            // Add source links if present
+            let sourceLinks = '';
+            if (response.sources && response.sources.length > 0) {
+                sourceLinks = '<br><strong>Sources:</strong><ul>';
+                response.sources.forEach(source => {
+                if (source.url) {
+                    sourceLinks += `<li><a href="${source.url}" target="_blank" style="color: #007bff; text-decoration: none;">${source.url}</a></li>`;
+                }
+                });
+                sourceLinks += '</ul>';
+            }
+
+            // Combine response text and source links and beautify the raw text.
+            const combinedText = beautifyRawText(`Assistant: ${responseText} ${sourceLinks}`);
+
+            // let finalText = convertUrlsToLinks(beautifiedText);
+
+
+            // Render the text with delay (this will correctly process HTML tokens like <a> and <br>)
+            renderTextWithDelay(botMessageDiv, combinedText);
+
+            // Append the bot message div to the conversation container
+            conversationDiv.appendChild(botMessageDiv);
+            // Add timestamp below the bot response
+            const timestamp = new Date().toLocaleTimeString();
+            const timestampDiv = document.createElement('div');
+            timestampDiv.style.fontSize = "12px";
+            timestampDiv.style.color = "#aaa";
+            timestampDiv.style.textAlign = "right";
+            timestampDiv.textContent = timestamp;
+            conversationDiv.appendChild(timestampDiv);
+
+        }
+
+        function displayRelatedQueries(queries) {
+            relatedQueriesDiv.innerHTML = '<h3>Related Queries:</h3>';
+            const ul = document.createElement('ul');
+            queries.forEach(query => {
+                const li = document.createElement('li');
+                li.textContent = query;
+                li.onclick = function() {
+                    userQueryInput.value = query;
+                    handleQuery(query);
+                };
+                ul.appendChild(li);
+            });
+            relatedQueriesDiv.appendChild(ul);
+        }
+
+        async function handleQuery(query) {
+            if (!query.trim()) return;
+
+            loadingDiv.style.display = 'block';
+            sendBtn.disabled = true;
+            displayUserQuery(query);
+
+            try {
+                const response = await fetch(`/chat?message=${encodeURIComponent(query)}`);
+                const data = await response.json();
+                loadingDiv.style.display = 'none';
+                sendBtn.disabled = false;
+
+                displayBotResponse(data);
+
+                if (data.related_queries && data.related_queries.length > 0) {
+                    displayRelatedQueries(data.related_queries);
+                } else {
+                    relatedQueriesDiv.innerHTML = '';
+                }
+
+                conversationDiv.scrollTop = conversationDiv.scrollHeight;
+            } catch (error) {
+                loadingDiv.style.display = 'none';
+                sendBtn.disabled = false;
+                // const rawResponseText = "To schedule a robotic surgery at Apollo Hospitals, you can follow these steps: 1. Visit the official website of Apollo Hospitals at https://www.apollohospitals.com/departments/robotics-surgery/. Here, you will find detailed information about their robotic surgery services. 2. If you have specific questions or need more details, you can contact their customer support at 1860-500-1066. They are available to assist you 24/7. 3. Once you've decided to proceed with the surgery, you will be required to book an appointment with the concerned department. You can do this by visiting the 'Book Appointment' section on their website or contacting the hospital directly. 4. On the day of your appointment, come prepared with any necessary documents and reports related to your health condition. The hospital staff will guide you through the rest of the process. 5. After the consultation, if the doctor recommends robotic surgery, further procedures such as pre-surgery tests, admission formalities, etc., will be explained to you. 6. On the day of the surgery, arrive at the hospital as instructed by the staff. The surgical team will prepare you for the procedure using minimally invasive techniques and advanced robotic systems. 7. After the surgery, you will be monitored closely in the recovery room before being moved to a ward or room for further care. 8. Post-surgery, follow the discharge instructions provided by your doctor carefully for a quick and smooth recovery. You may also need to attend follow-up appointments as advised by your healthcare provider.";
+                // // const normalText="hi my name is mishor and i am gonna tell you a story"
+                // displayBotResponse({answer: rawResponseText});
+
+                console.error('Error fetching data:', error);
+            }
+        }
+
+        sendBtn.addEventListener('click', function() {
+            const query = userQueryInput.value;
+            handleQuery(query);
+            userQueryInput.value=""
+        });
+
+        userQueryInput.addEventListener('keydown', function(event) {
+            if (event.key === 'Enter') {
+                const query = userQueryInput.value;
+                handleQuery(query);
+                userQueryInput.value=""
+            }
+        });
+
+        function clearChat() {
+            conversationDiv.innerHTML = "";
+            relatedQueriesDiv.innerHTML = "";
+        }
+
+        function focusInput() {
+            userQueryInput.focus();
+        }
+
+    </script>
+
+</body>
+</html>

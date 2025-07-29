@@ -1,0 +1,84 @@
+{
+    "status": true,
+    "data": [
+        {
+            "_id": "67e5270b85fcbc226fa19962",
+            "image": "",
+            "name": "Cafeteria",
+            "locationId": "a60e70c-1c8f-54ed-11e-5cca3dbf214",
+            "type": "Cafeteria",
+            "about": "",
+            "contact": "",
+            "locationName": "Cafeteria Counter",
+            "distance": "78",
+            "latitude": "32.563117955413745",
+            "longitude": "75.03857018438559",
+            "accessibility": "Yes",
+            "startTime": "10:00",
+            "endTime": "22:00",
+            "weekDays": [
+                "Monday",
+                "Tuesday",
+                "Wednesday",
+                "Thursday",
+                "Friday",
+                "Saturday"
+            ],
+            "hospitalId": "6673e7a3b92e69bc7f4b40ae",
+            "__v": 0
+        },
+        {
+            "_id": "67e5277285fcbc226fa19a73",
+            "image": "",
+            "name": "Canteen",
+            "locationId": "d73fd2a-d3b3-552-c3b5-4a25b54ea0b8",
+            "type": "Cafeteria",
+            "about": "",
+            "contact": "",
+            "locationName": "Canteen",
+            "distance": null,
+            "latitude": "32.56588792081032",
+            "longitude": "75.03367617151834",
+            "accessibility": "Yes",
+            "startTime": "10:00",
+            "endTime": "17:00",
+            "weekDays": [
+                "Monday",
+                "Tuesday",
+                "Wednesday",
+                "Thursday",
+                "Friday",
+                "Saturday"
+            ],
+            "hospitalId": "6673e7a3b92e69bc7f4b40ae",
+            "__v": 0
+        },
+        {
+            "_id": "67e527ae85fcbc226fa19bce",
+            "image": "",
+            "name": "ATM",
+            "locationId": "205173-a240-c62c-e7-d13caeb5aa7",
+            "type": "ATM",
+            "about": "",
+            "contact": "",
+            "locationName": "J&K Bank",
+            "distance": null,
+            "latitude": "32.56504696761223",
+            "longitude": "75.03306187066748",
+            "accessibility": "Yes",
+            "startTime": "06:00",
+            "endTime": "23:00",
+            "weekDays": [
+                "Monday",
+                "Tuesday",
+                "Wednesday",
+                "Thursday",
+                "Friday",
+                "Saturday",
+                "Sunday"
+            ],
+            "hospitalId": "6673e7a3b92e69bc7f4b40ae",
+            "__v": 0
+        }
+    ]
+}

@@ -1,0 +1,655 @@
+{"input": "Where is Dr. Shruti Sharma's OPD?", "expected_intent": "find_doctor"}
+{"input": "Can I book an appointment with cardiology?", "expected_intent": "book_appointment"}
+{"input": "What are the timings for emergency?", "expected_intent": "get_schedule"}
+{"input": "Show me all departments on ground floor.", "expected_intent": "listing_all"}
+{"input": "How to contact Dr Gaurav Gupta?", "expected_intent": "get_contact_info"}
+{"input": "Where is Dr. Shruti Sharma's OPD?", "expected_intent": "find_doctor"}
+{"input": "Where can I find Dr. Gaurav Gupta?", "expected_intent": "find_doctor"}
+{"input": "Tell me the location of Dr. Reema Yadav.", "expected_intent": "find_doctor"}
+{"input": "I want to meet Dr. Singh, where is he?", "expected_intent": "find_doctor"}
+{"input": "Can I book an appointment with cardiology?", "expected_intent": "book_appointment"}
+{"input": "Schedule a check-up with the eye specialist.", "expected_intent": "book_appointment"}
+{"input": "Book appointment with ENT department.", "expected_intent": "book_appointment"}
+{"input": "I want to fix an appointment with Dr. Ahuja.", "expected_intent": "book_appointment"}
+{"input": "What are the timings for emergency?", "expected_intent": "get_schedule"}
+{"input": "When is the OPD open?", "expected_intent": "get_schedule"}
+{"input": "What are visiting hours for ICU?", "expected_intent": "get_schedule"}
+{"input": "Emergency timings please.", "expected_intent": "get_schedule"}
+{"input": "Show me all departments on ground floor.", "expected_intent": "listing_all"}
+{"input": "List all facilities available on first floor.", "expected_intent": "listing_all"}
+{"input": "Departments on second floor?", "expected_intent": "listing_all"}
+{"input": "Which rooms are on 3rd floor?", "expected_intent": "listing_all"}
+{"input": "Tell me any five doctor or department etc", "expected_intent": "listing_all"}
+{"input": "How to contact Dr. Gaurav Gupta?", "expected_intent": "get_contact_info"}
+{"input": "Give me phone number of Dr. Shruti Sharma.", "expected_intent": "get_contact_info"}
+{"input": "Contact details for neurology department.", "expected_intent": "get_contact_info"}
+{"input": "How can I reach Dr. Ramesh?", "expected_intent": "get_contact_info"}
+{"input": "Where is the blood bank?", "expected_intent": "find_facility"}
+{"input": "Locate the radiology room.", "expected_intent": "find_facility"}
+{"input": "Is there an X-ray department here?", "expected_intent": "find_facility"}
+{"input": "Where is the emergency ward?", "expected_intent": "find_facility"}
+{"input": "What insurance do you accept?", "expected_intent": "insurance_info"}
+{"input": "Do you accept Ayushman Bharat?", "expected_intent": "insurance_info"}
+{"input": "Tell me about insurance coverage.", "expected_intent": "insurance_info"}
+{"input": "Is wheelchair access available?", "expected_intent": "accessibility_info"}
+{"input": "Do you have elevators?", "expected_intent": "accessibility_info"}
+{"input": "What is the nearest lift from Shruti?", "expected_intent": "accessibility_info"}
+{"input": "Is the hospital accessible for disabled persons?", "expected_intent": "accessibility_info"}
+{"input": "I want to cancel my appointment.", "expected_intent": "cancel_appointment"}
+{"input": "Reschedule my booking with Dr. Shruti.", "expected_intent": "cancel_appointment"}
+{"input": "How to change my appointment?", "expected_intent": "cancel_appointment"}
+{"input": "How do I get to the hospital?", "expected_intent": "get_directions"}
+{"input": "Share the route to AIIMS hospital.", "expected_intent": "get_directions"}
+{"input": "Directions to Base Hospital please.", "expected_intent": "get_directions"}
+{"input": "Where is ENT department?", "expected_intent": "find_department"}
+{"input": "Locate the ophthalmology department.", "expected_intent": "find_department"}
+{"input": "Can you tell me where cardiology is?", "expected_intent": "find_department"}
+{"input": "Direction to nephrology section?", "expected_intent": "find_department"}
+{"input": "Tell me where the blood bank is.", "expected_intent": "get_location"}
+{"input": "Where is the X-ray room?", "expected_intent": "get_location"}
+{"input": "How do I reach the lab?", "expected_intent": "get_location"}
+{"input": "Where can I find the reception?", "expected_intent": "get_location"}
+{"input": "Do you provide MRI scan service?", "expected_intent": "service_info"}
+{"input": "Is there an ambulance service available?", "expected_intent": "service_info"}
+{"input": "Can I get physiotherapy here?", "expected_intent": "service_info"}
+{"input": "Are lab tests done in the hospital?", "expected_intent": "service_info"}
+{"input": "What does the gastro department do?", "expected_intent": "department_info"}
+{"input": "Explain what the neurology department handles.", "expected_intent": "department_info"}
+{"input": "What is the function of the dermatology department?", "expected_intent": "department_info"}
+{"input": "What treatments are offered in orthopedics?", "expected_intent": "department_info"}
+{"input": "Is Dr. Reema available this evening?", "expected_intent": "doctor_availability"}
+{"input": "Can I see Dr. Sharma today?", "expected_intent": "doctor_availability"}
+{"input": "Is Dr. Rajeev Gupta on duty now?", "expected_intent": "doctor_availability"}
+{"input": "What time is Dr. Mehta available?", "expected_intent": "doctor_availability"}
+{"input": "Which doctors are in cardiology?", "expected_intent": "listing_specific"}
+{"input": "List all doctors in the ENT department.", "expected_intent": "listing_specific"}
+{"input": "Who are the physicians in gynecology?", "expected_intent": "listing_specific"}
+{"input": "Show me doctors under dermatology.", "expected_intent": "listing_specific"}
+{"input": "Is there a canteen in the hospital?", "expected_intent": "general_information"}
+{"input": "Do you have parking facilities?", "expected_intent": "general_information"}
+{"input": "Is Wi-Fi available for patients?", "expected_intent": "general_information"}
+{"input": "Does the hospital have a prayer room?", "expected_intent": "general_information"}
+{"input": "What is the meaning of life?", "expected_intent": "out_of_scope"}
+{"input": "Who won the FIFA World Cup in 2018?", "expected_intent": "out_of_scope"}
+{"input": "Can you play music for me?", "expected_intent": "out_of_scope"}
+{"input": "Tell me a joke about computers.", "expected_intent": "out_of_scope"}
+{"input": "In which ward is Dr. Anjali Verma?", "expected_intent": "find_doctor"}
+{"input": "Where does Dr. Rajesh Khanna practice?", "expected_intent": "find_doctor"}
+{"input": "I'm looking for Dr. Priya Malhotra's clinic.", "expected_intent": "find_doctor"}
+{"input": "Tell me Dr. Vivek Agarwal's location.", "expected_intent": "find_doctor"}
+{"input": "Where is Dr. Sunita Kapoor's chamber?", "expected_intent": "find_doctor"}
+{"input": "Find Dr. Rohit Sharma's consulting room.", "expected_intent": "find_doctor"}
+{"input": "Where can I locate Dr. Meera Joshi?", "expected_intent": "find_doctor"}
+{"input": "Dr. Ashish Kumar's office location?", "expected_intent": "find_doctor"}
+{"input": "I need to find Dr. Kavita Singh.", "expected_intent": "find_doctor"}
+{"input": "Where is Dr. Amit Patel stationed?", "expected_intent": "find_doctor"}
+{"input": "Show me where Dr. Neha Gupta sits.", "expected_intent": "find_doctor"}
+{"input": "Locate Dr. Ravi Mishra for me.", "expected_intent": "find_doctor"}
+{"input": "Where does Dr. Shalini work?", "expected_intent": "find_doctor"}
+{"input": "Find the location of Dr. Deepak Yadav.", "expected_intent": "find_doctor"}
+{"input": "Where is Dr. Pooja Thakur's OPD?", "expected_intent": "find_doctor"}
+{"input": "I need an appointment with a neurologist.", "expected_intent": "book_appointment"}
+{"input": "Book me with the orthopedic surgeon.", "expected_intent": "book_appointment"}
+{"input": "Schedule an appointment for dermatology.", "expected_intent": "book_appointment"}
+{"input": "I want to see a gynecologist tomorrow.", "expected_intent": "book_appointment"}
+{"input": "Fix an appointment with pediatrics.", "expected_intent": "book_appointment"}
+{"input": "Book a slot with Dr. Mehta for next week.", "expected_intent": "book_appointment"}
+{"input": "I need to see the cardiologist urgently.", "expected_intent": "book_appointment"}
+{"input": "Schedule me for a dental checkup.", "expected_intent": "book_appointment"}
+{"input": "Book appointment with gastroenterology.", "expected_intent": "book_appointment"}
+{"input": "I want to meet the psychiatrist.", "expected_intent": "book_appointment"}
+{"input": "Fix a consultation with urology.", "expected_intent": "book_appointment"}
+{"input": "Schedule appointment for physiotherapy.", "expected_intent": "book_appointment"}
+{"input": "Book me with the radiologist.", "expected_intent": "book_appointment"}
+{"input": "I need an appointment for blood test.", "expected_intent": "book_appointment"}
+{"input": "Schedule with the endocrinologist.", "expected_intent": "book_appointment"}
+{"input": "What time does the pharmacy open?", "expected_intent": "get_schedule"}
+{"input": "When is the radiology department open?", "expected_intent": "get_schedule"}
+{"input": "Lab timings on weekends?", "expected_intent": "get_schedule"}
+{"input": "What are the operation theater hours?", "expected_intent": "get_schedule"}
+{"input": "When does the dialysis center operate?", "expected_intent": "get_schedule"}
+{"input": "Cafeteria timings please.", "expected_intent": "get_schedule"}
+{"input": "What time does the blood bank close?", "expected_intent": "get_schedule"}
+{"input": "When is the physiotherapy department open?", "expected_intent": "get_schedule"}
+{"input": "Tell me the discharge timing.", "expected_intent": "get_schedule"}
+{"input": "What are the general ward visiting hours?", "expected_intent": "get_schedule"}
+{"input": "When can I visit the NICU?", "expected_intent": "get_schedule"}
+{"input": "Admission office timings?", "expected_intent": "get_schedule"}
+{"input": "What time does the canteen serve food?", "expected_intent": "get_schedule"}
+{"input": "When is the medical records office open?", "expected_intent": "get_schedule"}
+{"input": "Tell me the chemotherapy center hours.", "expected_intent": "get_schedule"}
+{"input": "What departments are in the basement?", "expected_intent": "listing_all"}
+{"input": "Show all services on the fourth floor.", "expected_intent": "listing_all"}
+{"input": "List facilities available in Block A.", "expected_intent": "listing_all"}
+{"input": "What's available in the new building?", "expected_intent": "listing_all"}
+{"input": "Show me all departments in the old wing.", "expected_intent": "listing_all"}
+{"input": "List all clinics on the fifth floor.", "expected_intent": "listing_all"}
+{"input": "What services are in the tower block?", "expected_intent": "listing_all"}
+{"input": "Show facilities in the pediatric wing.", "expected_intent": "listing_all"}
+{"input": "List all departments in Block B.", "expected_intent": "listing_all"}
+{"input": "What's on the sixth floor?", "expected_intent": "listing_all"}
+{"input": "Show me all services in the main building.", "expected_intent": "listing_all"}
+{"input": "List facilities in the surgical wing.", "expected_intent": "listing_all"}
+{"input": "What departments are in the annex?", "expected_intent": "listing_all"}
+{"input": "Show all services on level 3.", "expected_intent": "listing_all"}
+{"input": "List everything available on the mezzanine floor.", "expected_intent": "listing_all"}
+{"input": "Dr. Arjun's phone number please.", "expected_intent": "get_contact_info"}
+{"input": "How do I call the emergency department?", "expected_intent": "get_contact_info"}
+{"input": "Give me the main reception number.", "expected_intent": "get_contact_info"}
+{"input": "What's the appointment booking number?", "expected_intent": "get_contact_info"}
+{"input": "ICU contact information please.", "expected_intent": "get_contact_info"}
+{"input": "How to reach the pharmacy?", "expected_intent": "get_contact_info"}
+{"input": "Give me Dr. Sonia's extension.", "expected_intent": "get_contact_info"}
+{"input": "What's the blood bank contact number?", "expected_intent": "get_contact_info"}
+{"input": "How can I contact the billing department?", "expected_intent": "get_contact_info"}
+{"input": "Give me the lab's phone number.", "expected_intent": "get_contact_info"}
+{"input": "What's the ambulance service number?", "expected_intent": "get_contact_info"}
+{"input": "How to contact the administration?", "expected_intent": "get_contact_info"}
+{"input": "Give me the complaints cell number.", "expected_intent": "get_contact_info"}
+{"input": "What's the medical records contact?", "expected_intent": "get_contact_info"}
+{"input": "How do I reach the dietary department?", "expected_intent": "get_contact_info"}
+{"input": "Where is the pharmacy located?", "expected_intent": "find_facility"}
+{"input": "Find the pathology lab for me.", "expected_intent": "find_facility"}
+{"input": "Where is the MRI center?", "expected_intent": "find_facility"}
+{"input": "Locate the dialysis unit.", "expected_intent": "find_facility"}
+{"input": "Where can I find the CT scan room?", "expected_intent": "find_facility"}
+{"input": "Show me the way to the ICU.", "expected_intent": "find_facility"}
+{"input": "Where is the operation theater?", "expected_intent": "find_facility"}
+{"input": "Find the maternity ward.", "expected_intent": "find_facility"}
+{"input": "Where is the physiotherapy center?", "expected_intent": "find_facility"}
+{"input": "Locate the chemotherapy unit.", "expected_intent": "find_facility"}
+{"input": "Where can I find the ultrasound room?", "expected_intent": "find_facility"}
+{"input": "Show me the cardiac catheterization lab.", "expected_intent": "find_facility"}
+{"input": "Where is the endoscopy suite?", "expected_intent": "find_facility"}
+{"input": "Find the nuclear medicine department.", "expected_intent": "find_facility"}
+{"input": "Where is the burn unit located?", "expected_intent": "find_facility"}
+{"input": "Do you accept health insurance?", "expected_intent": "insurance_info"}
+{"input": "What about CGHS coverage?", "expected_intent": "insurance_info"}
+{"input": "Is ESI accepted here?", "expected_intent": "insurance_info"}
+{"input": "Do you take private insurance?", "expected_intent": "insurance_info"}
+{"input": "What insurance plans do you accept?", "expected_intent": "insurance_info"}
+{"input": "Is cashless treatment available?", "expected_intent": "insurance_info"}
+{"input": "Do you accept Star Health insurance?", "expected_intent": "insurance_info"}
+{"input": "What about LIC health coverage?", "expected_intent": "insurance_info"}
+{"input": "Is HDFC Ergo accepted?", "expected_intent": "insurance_info"}
+{"input": "Do you take Bajaj Allianz insurance?", "expected_intent": "insurance_info"}
+{"input": "What about government schemes?", "expected_intent": "insurance_info"}
+{"input": "Is Jan Aushadhi scheme available?", "expected_intent": "insurance_info"}
+{"input": "Do you accept TPA cards?", "expected_intent": "insurance_info"}
+{"input": "What about senior citizen schemes?", "expected_intent": "insurance_info"}
+{"input": "Is BPL card accepted for treatment?", "expected_intent": "insurance_info"}
+{"input": "Are there ramps for wheelchairs?", "expected_intent": "accessibility_info"}
+{"input": "Is the hospital handicap friendly?", "expected_intent": "accessibility_info"}
+{"input": "Do you have facilities for blind patients?", "expected_intent": "accessibility_info"}
+{"input": "Are there accessible washrooms?", "expected_intent": "accessibility_info"}
+{"input": "Is sign language interpreter available?", "expected_intent": "accessibility_info"}
+{"input": "Do you have braille signage?", "expected_intent": "accessibility_info"}
+{"input": "Are the corridors wheelchair accessible?", "expected_intent": "accessibility_info"}
+{"input": "Is there reserved parking for disabled?", "expected_intent": "accessibility_info"}
+{"input": "Do you have hearing loop systems?", "expected_intent": "accessibility_info"}
+{"input": "Are there accessible patient rooms?", "expected_intent": "accessibility_info"}
+{"input": "Is the cafeteria wheelchair accessible?", "expected_intent": "accessibility_info"}
+{"input": "Do you provide wheelchairs?", "expected_intent": "accessibility_info"}
+{"input": "Are there accessible emergency exits?", "expected_intent": "accessibility_info"}
+{"input": "Is there assistance for mobility impaired?", "expected_intent": "accessibility_info"}
+{"input": "Do you have accessible waiting areas?", "expected_intent": "accessibility_info"}
+{"input": "Delete my appointment please.", "expected_intent": "cancel_appointment"}
+{"input": "I need to postpone my consultation.", "expected_intent": "cancel_appointment"}
+{"input": "Can I shift my appointment to next week?", "expected_intent": "cancel_appointment"}
+{"input": "Modify my booking with cardiology.", "expected_intent": "cancel_appointment"}
+{"input": "I want to cancel tomorrow's appointment.", "expected_intent": "cancel_appointment"}
+{"input": "Reschedule my surgery date.", "expected_intent": "cancel_appointment"}
+{"input": "Change my appointment time please.", "expected_intent": "cancel_appointment"}
+{"input": "Cancel my booking with Dr. Sharma.", "expected_intent": "cancel_appointment"}
+{"input": "I need to reschedule my checkup.", "expected_intent": "cancel_appointment"}
+{"input": "Move my appointment to another day.", "expected_intent": "cancel_appointment"}
+{"input": "Cancel today's consultation.", "expected_intent": "cancel_appointment"}
+{"input": "I want to change my doctor appointment.", "expected_intent": "cancel_appointment"}
+{"input": "Postpone my lab test booking.", "expected_intent": "cancel_appointment"}
+{"input": "Cancel my physiotherapy session.", "expected_intent": "cancel_appointment"}
+{"input": "Reschedule my follow-up appointment.", "expected_intent": "cancel_appointment"}
+{"input": "What's the address of this hospital?", "expected_intent": "get_directions"}
+{"input": "How to reach here by metro?", "expected_intent": "get_directions"}
+{"input": "Which bus goes to the hospital?", "expected_intent": "get_directions"}
+{"input": "Nearest metro station to hospital?", "expected_intent": "get_directions"}
+{"input": "How far is the hospital from airport?", "expected_intent": "get_directions"}
+{"input": "Show me the hospital location on map.", "expected_intent": "get_directions"}
+{"input": "What's the best route from Delhi?", "expected_intent": "get_directions"}
+{"input": "How to come by car?", "expected_intent": "get_directions"}
+{"input": "Which auto route should I take?", "expected_intent": "get_directions"}
+{"input": "GPS coordinates of the hospital?", "expected_intent": "get_directions"}
+{"input": "How to reach from railway station?", "expected_intent": "get_directions"}
+{"input": "What's the hospital's postal address?", "expected_intent": "get_directions"}
+{"input": "Distance from city center?", "expected_intent": "get_directions"}
+{"input": "How to come using public transport?", "expected_intent": "get_directions"}
+{"input": "Landmark near the hospital?", "expected_intent": "get_directions"}
+{"input": "Find the psychiatry department.", "expected_intent": "find_department"}
+{"input": "Where is the gastroenterology section?", "expected_intent": "find_department"}
+{"input": "Locate the pulmonology department.", "expected_intent": "find_department"}
+{"input": "Where can I find endocrinology?", "expected_intent": "find_department"}
+{"input": "Show me the way to oncology.", "expected_intent": "find_department"}
+{"input": "Where is the rheumatology clinic?", "expected_intent": "find_department"}
+{"input": "Find the hematology department.", "expected_intent": "find_department"}
+{"input": "Where is the infectious diseases unit?", "expected_intent": "find_department"}
+{"input": "Locate the emergency medicine department.", "expected_intent": "find_department"}
+{"input": "Where can I find the anesthesiology department?", "expected_intent": "find_department"}
+{"input": "Show me the plastic surgery department.", "expected_intent": "find_department"}
+{"input": "Where is the nuclear medicine section?", "expected_intent": "find_department"}
+{"input": "Find the rehabilitation medicine department.", "expected_intent": "find_department"}
+{"input": "Where is the geriatrics department?", "expected_intent": "find_department"}
+{"input": "Locate the pain management clinic.", "expected_intent": "find_department"}
+{"input": "Where is the billing counter?", "expected_intent": "get_location"}
+{"input": "How do I get to the pharmacy?", "expected_intent": "get_location"}
+{"input": "Where can I find the information desk?", "expected_intent": "get_location"}
+{"input": "Show me the way to the cafeteria.", "expected_intent": "get_location"}
+{"input": "Where is the medical records office?", "expected_intent": "get_location"}
+{"input": "How to reach the discharge counter?", "expected_intent": "get_location"}
+{"input": "Where can I find the cashier?", "expected_intent": "get_location"}
+{"input": "Show me the location of the gift shop.", "expected_intent": "get_location"}
+{"input": "Where is the ATM machine?", "expected_intent": "get_location"}
+{"input": "How to get to the parking area?", "expected_intent": "get_location"}
+{"input": "Where can I find the restrooms?", "expected_intent": "get_location"}
+{"input": "Show me the way to the chapel.", "expected_intent": "get_location"}
+{"input": "Where is the waiting area?", "expected_intent": "get_location"}
+{"input": "How to reach the security office?", "expected_intent": "get_location"}
+{"input": "Where can I find the lost and found?", "expected_intent": "get_location"}
+{"input": "Is CT scan available here?", "expected_intent": "service_info"}
+{"input": "Do you have 24-hour emergency service?", "expected_intent": "service_info"}
+{"input": "Is there a blood donation camp?", "expected_intent": "service_info"}
+{"input": "Do you provide home care services?", "expected_intent": "service_info"}
+{"input": "Is dialysis service available?", "expected_intent": "service_info"}
+{"input": "Do you have a health checkup package?", "expected_intent": "service_info"}
+{"input": "Is there a pharmacy delivery service?", "expected_intent": "service_info"}
+{"input": "Do you provide telemedicine consultation?", "expected_intent": "service_info"}
+{"input": "Is vaccination service available?", "expected_intent": "service_info"}
+{"input": "Do you have organ transplant facility?", "expected_intent": "service_info"}
+{"input": "Is there a birthing center?", "expected_intent": "service_info"}
+{"input": "Do you provide mental health counseling?", "expected_intent": "service_info"}
+{"input": "Is there a weight loss program?", "expected_intent": "service_info"}
+{"input": "Do you have cardiac rehabilitation?", "expected_intent": "service_info"}
+{"input": "Is sleep study available here?", "expected_intent": "service_info"}
+{"input": "What services does pediatrics offer?", "expected_intent": "department_info"}
+{"input": "Tell me about the cardiology department.", "expected_intent": "department_info"}
+{"input": "What does the oncology department do?", "expected_intent": "department_info"}
+{"input": "Explain the services of psychiatry.", "expected_intent": "department_info"}
+{"input": "What treatments are available in nephrology?", "expected_intent": "department_info"}
+{"input": "Tell me about the emergency department.", "expected_intent": "department_info"}
+{"input": "What does the radiology department offer?", "expected_intent": "department_info"}
+{"input": "Explain the role of pathology department.", "expected_intent": "department_info"}
+{"input": "What services does anesthesiology provide?", "expected_intent": "department_info"}
+{"input": "Tell me about the surgical department.", "expected_intent": "department_info"}
+{"input": "What does the physiotherapy department do?", "expected_intent": "department_info"}
+{"input": "Explain the services of pulmonology.", "expected_intent": "department_info"}
+{"input": "What treatments does endocrinology offer?", "expected_intent": "department_info"}
+{"input": "Tell me about the rheumatology department.", "expected_intent": "department_info"}
+{"input": "What does the hematology department handle?", "expected_intent": "department_info"}
+{"input": "Will Dr. Patel be available tomorrow?", "expected_intent": "doctor_availability"}
+{"input": "Is Dr. Kumari working this weekend?", "expected_intent": "doctor_availability"}
+{"input": "When is Dr. Arun free next week?", "expected_intent": "doctor_availability"}
+{"input": "Can I see Dr. Ritu today?", "expected_intent": "doctor_availability"}
+{"input": "Is Dr. Mohan available for consultation?", "expected_intent": "doctor_availability"}
+{"input": "When does Dr. Priti come to the hospital?", "expected_intent": "doctor_availability"}
+{"input": "Is Dr. Kiran on duty tonight?", "expected_intent": "doctor_availability"}
+{"input": "Can I meet Dr. Salman this afternoon?", "expected_intent": "doctor_availability"}
+{"input": "When will Dr. Anjana be available?", "expected_intent": "doctor_availability"}
+{"input": "Is Dr. Harish free for consultation?", "expected_intent": "doctor_availability"}
+{"input": "Can I see Dr. Seema in the evening?", "expected_intent": "doctor_availability"}
+{"input": "When is Dr. Vinod available next?", "expected_intent": "doctor_availability"}
+{"input": "Is Dr. Maya working today?", "expected_intent": "doctor_availability"}
+{"input": "Can I meet Dr. Suresh right now?", "expected_intent": "doctor_availability"}
+{"input": "When does Dr. Lata see patients?", "expected_intent": "doctor_availability"}
+{"input": "Who are the specialists in neurology?", "expected_intent": "listing_specific"}
+{"input": "List all surgeons in orthopedics.", "expected_intent": "listing_specific"}
+{"input": "Show me pediatric doctors.", "expected_intent": "listing_specific"}
+{"input": "Which doctors work in psychiatry?", "expected_intent": "listing_specific"}
+{"input": "List all physicians in internal medicine.", "expected_intent": "listing_specific"}
+{"input": "Who are the doctors in radiology?", "expected_intent": "listing_specific"}
+{"input": "Show me all anesthesiologists.", "expected_intent": "listing_specific"}
+{"input": "List doctors in the ICU.", "expected_intent": "listing_specific"}
+{"input": "Which physicians are in gastroenterology?", "expected_intent": "listing_specific"}
+{"input": "Show me all oncologists.", "expected_intent": "listing_specific"}
+{"input": "List doctors in the emergency department.", "expected_intent": "listing_specific"}
+{"input": "Who are the specialists in urology?", "expected_intent": "listing_specific"}
+{"input": "Show me all pathologists.", "expected_intent": "listing_specific"}
+{"input": "List physicians in endocrinology.", "expected_intent": "listing_specific"}
+{"input": "Which doctors work in nephrology?", "expected_intent": "listing_specific"}
+{"input": "Where can I get food in the hospital?", "expected_intent": "general_information"}
+{"input": "Are visiting hours restricted?", "expected_intent": "general_information"}
+{"input": "Is there a gift shop here?", "expected_intent": "general_information"}
+{"input": "Do you have free WiFi?", "expected_intent": "general_information"}
+{"input": "Where can I charge my phone?", "expected_intent": "general_information"}
+{"input": "Is there a library in the hospital?", "expected_intent": "general_information"}
+{"input": "Do you have ATM facilities?", "expected_intent": "general_information"}
+{"input": "Are there lockers available?", "expected_intent": "general_information"}
+{"input": "Is smoking allowed anywhere?", "expected_intent": "general_information"}
+{"input": "Do you have a nursery for children?", "expected_intent": "general_information"}
+{"input": "Where can I buy medicines?", "expected_intent": "general_information"}
+{"input": "Is there a barber shop?", "expected_intent": "general_information"}
+{"input": "Do you have accommodation for attendants?", "expected_intent": "general_information"}
+{"input": "Are wheelchairs available for rent?", "expected_intent": "general_information"}
+{"input": "Is there a complaint box?", "expected_intent": "general_information"}
+{"input": "What's the weather like today?", "expected_intent": "out_of_scope"}
+{"input": "Can you book a cab for me?", "expected_intent": "out_of_scope"}
+{"input": "What's the latest movie playing?", "expected_intent": "out_of_scope"}
+{"input": "How do I cook biryani?", "expected_intent": "out_of_scope"}
+{"input": "What's the stock market doing?", "expected_intent": "out_of_scope"}
+{"input": "Can you help me with my homework?", "expected_intent": "out_of_scope"}
+{"input": "What's the capital of France?", "expected_intent": "out_of_scope"}
+{"input": "How do I fix my computer?", "expected_intent": "out_of_scope"}
+{"input": "What time is it in New York?", "expected_intent": "out_of_scope"}
+{"input": "Can you translate this to Hindi?", "expected_intent": "out_of_scope"}
+{"input": "How do I lose weight quickly?", "expected_intent": "out_of_scope"}
+{"input": "What's the best phone to buy?", "expected_intent": "out_of_scope"}
+{"input": "Can you tell me about politics?", "expected_intent": "out_of_scope"}
+{"input": "How do I make money online?", "expected_intent": "out_of_scope"}
+{"input": "What's the meaning of this dream?", "expected_intent": "out_of_scope"}
+{"input": "Where is Dr. Rekha Bhardwaj's clinic?", "expected_intent": "find_doctor"}
+{"input": "Find Dr. Manoj Kumar's consultation room.", "expected_intent": "find_doctor"}
+{"input": "I'm looking for Dr. Anita Desai.", "expected_intent": "find_doctor"}
+{"input": "Where does Dr. Sunil Jain see patients?", "expected_intent": "find_doctor"}
+{"input": "Locate Dr. Rashmi Agarwal's chamber.", "expected_intent": "find_doctor"}
+{"input": "Where can I find Dr. Vikash Singh?", "expected_intent": "find_doctor"}
+{"input": "Dr. Neelam Chopra's office location?", "expected_intent": "find_doctor"}
+{"input": "I need to find Dr. Harish Chandra.", "expected_intent": "find_doctor"}
+{"input": "Where is Dr. Sheetal Pandey stationed?", "expected_intent": "find_doctor"}
+{"input": "Show me where Dr. Binod Thapa practices.", "expected_intent": "find_doctor"}
+{"input": "Set up appointment with ophthalmology.", "expected_intent": "book_appointment"}
+{"input": "I need to see a skin specialist.", "expected_intent": "book_appointment"}
+{"input": "Book me for a heart checkup.", "expected_intent": "book_appointment"}
+{"input": "Schedule appointment with bone doctor.", "expected_intent": "book_appointment"}
+{"input": "I want to see the kidney specialist.", "expected_intent": "book_appointment"}
+{"input": "Fix appointment for mental health consultation.", "expected_intent": "book_appointment"}
+{"input": "Book me with the child specialist.", "expected_intent": "book_appointment"}
+{"input": "I need appointment for women's health.", "expected_intent": "book_appointment"}
+{"input": "Schedule me for ear, nose, throat checkup.", "expected_intent": "book_appointment"}
+{"input": "Book appointment for cancer screening.", "expected_intent": "book_appointment"}
+{"input": "When does the surgical ward open?", "expected_intent": "get_schedule"}
+{"input": "What are the maternity ward visiting hours?", "expected_intent": "get_schedule"}
+{"input": "When is the outpatient department closed?", "expected_intent": "get_schedule"}
+{"input": "What time does the billing counter open?", "expected_intent": "get_schedule"}
+{"input": "When can I collect my reports?", "expected_intent": "get_schedule"}
+{"input": "What are the weekend operation hours?", "expected_intent": "get_schedule"}
+{"input": "When does the medical store close?", "expected_intent": "get_schedule"}
+{"input": "What time is lunch break in OPD?", "expected_intent": "get_schedule"}
+{"input": "When does the night shift start?", "expected_intent": "get_schedule"}
+{"input": "What are holiday timings?", "expected_intent": "get_schedule"}
+{"input": "What facilities are in the trauma center?", "expected_intent": "listing_all"}
+{"input": "Show all services in the women's block.", "expected_intent": "listing_all"}
+{"input": "List departments in the children's hospital.", "expected_intent": "listing_all"}
+{"input": "What's available in the diagnostic center?", "expected_intent": "listing_all"}
+{"input": "Show facilities in the cardiac center.", "expected_intent": "listing_all"}
+{"input": "List all services in the cancer center.", "expected_intent": "listing_all"}
+{"input": "What departments are in the rehabilitation wing?", "expected_intent": "listing_all"}
+{"input": "Show all facilities in the surgical block.", "expected_intent": "listing_all"}
+{"input": "List services in the medical college.", "expected_intent": "listing_all"}
+{"input": "What's available in the research center?", "expected_intent": "listing_all"}
+{"input": "What's the nursing station number?", "expected_intent": "get_contact_info"}
+{"input": "How do I reach the security desk?", "expected_intent": "get_contact_info"}
+{"input": "Give me the social worker's contact.", "expected_intent": "get_contact_info"}
+{"input": "What's the patient relations number?", "expected_intent": "get_contact_info"}
+{"input": "How to contact the chaplain?", "expected_intent": "get_contact_info"}
+{"input": "Give me the volunteer coordinator's number.", "expected_intent": "get_contact_info"}
+{"input": "What's the transport service contact?", "expected_intent": "get_contact_info"}
+{"input": "How do I reach the housekeeping?", "expected_intent": "get_contact_info"}
+{"input": "Give me the medical equipment contact.", "expected_intent": "get_contact_info"}
+{"input": "What's the quality assurance number?", "expected_intent": "get_contact_info"}
+{"input": "Where is the neonatal ICU?", "expected_intent": "find_facility"}
+{"input": "Find the cardiac catheterization lab.", "expected_intent": "find_facility"}
+{"input": "Where is the sleep study center?", "expected_intent": "find_facility"}
+{"input": "Locate the wound care clinic.", "expected_intent": "find_facility"}
+{"input": "Where can I find the mammography unit?", "expected_intent": "find_facility"}
+{"input": "Show me the rehabilitation gym.", "expected_intent": "find_facility"}
+{"input": "Where is the bone marrow transplant unit?", "expected_intent": "find_facility"}
+{"input": "Find the hyperbaric oxygen chamber.", "expected_intent": "find_facility"}
+{"input": "Where is the lithotripsy center?", "expected_intent": "find_facility"}
+{"input": "Locate the speech therapy room.", "expected_intent": "find_facility"}
+{"input": "Do you accept Mediclaim policies?", "expected_intent": "insurance_info"}
+{"input": "What about corporate insurance?", "expected_intent": "insurance_info"}
+{"input": "Is family floater policy accepted?", "expected_intent": "insurance_info"}
+{"input": "Do you take employer insurance?", "expected_intent": "insurance_info"}
+{"input": "What about international insurance?", "expected_intent": "insurance_info"}
+{"input": "Is travel insurance valid here?", "expected_intent": "insurance_info"}
+{"input": "Do you accept medical vouchers?", "expected_intent": "insurance_info"}
+{"input": "What about reimbursement claims?", "expected_intent": "insurance_info"}
+{"input": "Is pre-authorization required?", "expected_intent": "insurance_info"}
+{"input": "Do you have payment plans?", "expected_intent": "insurance_info"}
+{"input": "Do you have large print materials?", "expected_intent": "accessibility_info"}
+{"input": "Are there audio announcements?", "expected_intent": "accessibility_info"}
+{"input": "Is there tactile guidance available?", "expected_intent": "accessibility_info"}
+{"input": "Do you have accessible examination tables?", "expected_intent": "accessibility_info"}
+{"input": "Are there companion care facilities?", "expected_intent": "accessibility_info"}
+{"input": "Is there assisted communication available?", "expected_intent": "accessibility_info"}
+{"input": "Do you have height-adjustable equipment?", "expected_intent": "accessibility_info"}
+{"input": "Are there accessible fire exits?", "expected_intent": "accessibility_info"}
+{"input": "Is there priority seating available?", "expected_intent": "accessibility_info"}
+{"input": "Do you provide mobility assistance?", "expected_intent": "accessibility_info"}
+{"input": "Cancel my lab appointment.", "expected_intent": "cancel_appointment"}
+{"input": "I need to reschedule my scan.", "expected_intent": "cancel_appointment"}
+{"input": "Postpone my therapy session.", "expected_intent": "cancel_appointment"}
+{"input": "Cancel my vaccination appointment.", "expected_intent": "cancel_appointment"}
+{"input": "Reschedule my dental appointment.", "expected_intent": "cancel_appointment"}
+{"input": "I want to cancel my health checkup.", "expected_intent": "cancel_appointment"}
+{"input": "Change my consultation date.", "expected_intent": "cancel_appointment"}
+{"input": "Cancel my follow-up visit.", "expected_intent": "cancel_appointment"}
+{"input": "Reschedule my injection appointment.", "expected_intent": "cancel_appointment"}
+{"input": "I need to postpone my procedure.", "expected_intent": "cancel_appointment"}
+{"input": "How to reach the hospital by bike?", "expected_intent": "get_directions"}
+{"input": "What's the nearest bus stop?", "expected_intent": "get_directions"}
+{"input": "Driving directions from Gurgaon?", "expected_intent": "get_directions"}
+{"input": "How far from the main market?", "expected_intent": "get_directions"}
+{"input": "Which gate should I use?", "expected_intent": "get_directions"}
+{"input": "Best route during rush hour?", "expected_intent": "get_directions"}
+{"input": "How to come from Noida?", "expected_intent": "get_directions"}
+{"input": "What's the hospital pin code?", "expected_intent": "get_directions"}
+{"input": "Directions from Faridabad?", "expected_intent": "get_directions"}
+{"input": "How to reach using Uber?", "expected_intent": "get_directions"}
+{"input": "Where is the allergy clinic?", "expected_intent": "find_department"}
+{"input": "Find the sleep medicine department.", "expected_intent": "find_department"}
+{"input": "Where is the transplant surgery department?", "expected_intent": "find_department"}
+{"input": "Locate the interventional radiology.", "expected_intent": "find_department"}
+{"input": "Where can I find occupational therapy?", "expected_intent": "find_department"}
+{"input": "Show me the pediatric surgery department.", "expected_intent": "find_department"}
+{"input": "Where is the vascular surgery unit?", "expected_intent": "find_department"}
+{"input": "Find the medical genetics department.", "expected_intent": "find_department"}
+{"input": "Where is the palliative care unit?", "expected_intent": "find_department"}
+{"input": "Locate the sports medicine clinic.", "expected_intent": "find_department"}
+{"input": "Where is the volunteer desk?", "expected_intent": "get_location"}
+{"input": "How do I get to the auditorium?", "expected_intent": "get_location"}
+{"input": "Where can I find the library?", "expected_intent": "get_location"}
+{"input": "Show me the way to the conference room.", "expected_intent": "get_location"}
+{"input": "Where is the patient education center?", "expected_intent": "get_location"}
+{"input": "How to reach the helipad?", "expected_intent": "get_location"}
+{"input": "Where can I find the morgue?", "expected_intent": "get_location"}
+{"input": "Show me the location of the generator room.", "expected_intent": "get_location"}
+{"input": "Where is the laundry facility?", "expected_intent": "get_location"}
+{"input": "How to get to the oxygen plant?", "expected_intent": "get_location"}
+{"input": "Do you have genetic testing?", "expected_intent": "service_info"}
+{"input": "Is there a diabetes education program?", "expected_intent": "service_info"}
+{"input": "Do you provide nutrition counseling?", "expected_intent": "service_info"}
+{"input": "Is there a smoking cessation program?", "expected_intent": "service_info"}
+{"input": "Do you have social work services?", "expected_intent": "service_info"}
+{"input": "Is there a chaplaincy service?", "expected_intent": "service_info"}
+{"input": "Do you provide interpreter services?", "expected_intent": "service_info"}
+{"input": "Is there a patient advocacy program?", "expected_intent": "service_info"}
+{"input": "Do you have a mobile health clinic?", "expected_intent": "service_info"}
+{"input": "Is there a research participation program?", "expected_intent": "service_info"}
+{"input": "What does the laboratory department do?", "expected_intent": "department_info"}
+{"input": "Tell me about the pharmacy services.", "expected_intent": "department_info"}
+{"input": "What services does nutrition offer?", "expected_intent": "department_info"}
+{"input": "Explain the role of social services.", "expected_intent": "department_info"}
+{"input": "What does the quality department do?", "expected_intent": "department_info"}
+{"input": "Tell me about the infection control department.", "expected_intent": "department_info"}
+{"input": "What services does biomedical engineering provide?", "expected_intent": "department_info"}
+{"input": "Explain the role of medical records.", "expected_intent": "department_info"}
+{"input": "What does the risk management department do?", "expected_intent": "department_info"}
+{"input": "Tell me about the education department.", "expected_intent": "department_info"}
+{"input": "Is Dr. Rajesh available on Monday?", "expected_intent": "doctor_availability"}
+{"input": "When does Dr. Sunita work?", "expected_intent": "doctor_availability"}
+{"input": "Can I see Dr. Amit this week?", "expected_intent": "doctor_availability"}
+{"input": "Is Dr. Preeti on call tonight?", "expected_intent": "doctor_availability"}
+{"input": "When is Dr. Ramesh free?", "expected_intent": "doctor_availability"}
+{"input": "Can I meet Dr. Kavita tomorrow morning?", "expected_intent": "doctor_availability"}
+{"input": "Is Dr. Deepak working on Sunday?", "expected_intent": "doctor_availability"}
+{"input": "When does Dr. Shilpa see patients?", "expected_intent": "doctor_availability"}
+{"input": "Can I see Dr. Ravi in the afternoon?", "expected_intent": "doctor_availability"}
+{"input": "Is Dr. Nisha available for emergency?", "expected_intent": "doctor_availability"}
+{"input": "List all doctors in dermatology.", "expected_intent": "listing_specific"}
+{"input": "Who are the specialists in pulmonology?", "expected_intent": "listing_specific"}
+{"input": "Show me all doctors in infectious diseases.", "expected_intent": "listing_specific"}
+{"input": "Which physicians work in rheumatology?", "expected_intent": "listing_specific"}
+{"input": "List all surgeons in neurosurgery.", "expected_intent": "listing_specific"}
+{"input": "Who are the doctors in hematology?", "expected_intent": "listing_specific"}
+{"input": "Show me all specialists in nuclear medicine.", "expected_intent": "listing_specific"}
+{"input": "List physicians in geriatrics.", "expected_intent": "listing_specific"}
+{"input": "Which doctors work in pain management?", "expected_intent": "listing_specific"}
+{"input": "Show me all doctors in family medicine.", "expected_intent": "listing_specific"}
+{"input": "How much does parking cost?", "expected_intent": "general_information"}
+{"input": "What are the hospital's accreditations?", "expected_intent": "general_information"}
+{"input": "Is there a patient feedback system?", "expected_intent": "general_information"}
+{"input": "Do you have a mobile app?", "expected_intent": "general_information"}
+{"input": "What are the hospital's quality ratings?", "expected_intent": "general_information"}
+{"input": "Is there a patient portal?", "expected_intent": "general_information"}
+{"input": "Do you have multilingual staff?", "expected_intent": "general_information"}
+{"input": "What safety measures are in place?", "expected_intent": "general_information"}
+{"input": "Is there a patient satisfaction survey?", "expected_intent": "general_information"}
+{"input": "Do you have green building certification?", "expected_intent": "general_information"}
+{"input": "Can you recommend a good restaurant?", "expected_intent": "out_of_scope"}
+{"input": "What's the cricket score today?", "expected_intent": "out_of_scope"}
+{"input": "How do I get a passport?", "expected_intent": "out_of_scope"}
+{"input": "What's the exchange rate for dollars?", "expected_intent": "out_of_scope"}
+{"input": "Can you help me with my taxes?", "expected_intent": "out_of_scope"}
+{"input": "What's the best college for engineering?", "expected_intent": "out_of_scope"}
+{"input": "How do I learn guitar?", "expected_intent": "out_of_scope"}
+{"input": "What's the traffic situation on NH1?", "expected_intent": "out_of_scope"}
+{"input": "Can you book a hotel for me?", "expected_intent": "out_of_scope"}
+{"input": "What's the population of India?", "expected_intent": "out_of_scope"}
+{"input": "Where is Dr. Pooja Mehta's OPD?", "expected_intent": "find_doctor"}
+{"input": "Find Dr. Sanjay Gupta's consultation room.", "expected_intent": "find_doctor"}
+{"input": "I'm looking for Dr. Ritu Sharma's office.", "expected_intent": "find_doctor"}
+{"input": "Where does Dr. Alok Verma practice?", "expected_intent": "find_doctor"}
+{"input": "Locate Dr. Mamta Singh's chamber.", "expected_intent": "find_doctor"}
+{"input": "Where can I find Dr. Rahul Jain?", "expected_intent": "find_doctor"}
+{"input": "Dr. Seema Agarwal's clinic location?", "expected_intent": "find_doctor"}
+{"input": "I need to find Dr. Vinay Kumar.", "expected_intent": "find_doctor"}
+{"input": "Where is Dr. Nidhi Pandey stationed?", "expected_intent": "find_doctor"}
+{"input": "Show me where Dr. Tarun Khanna sits.", "expected_intent": "find_doctor"}
+{"input": "Book me for blood sugar test.", "expected_intent": "book_appointment"}
+{"input": "I need appointment for vaccination.", "expected_intent": "book_appointment"}
+{"input": "Schedule me for health screening.", "expected_intent": "book_appointment"}
+{"input": "Book appointment for allergy testing.", "expected_intent": "book_appointment"}
+{"input": "I want to see the pain specialist.", "expected_intent": "book_appointment"}
+{"input": "Fix appointment for sleep study.", "expected_intent": "book_appointment"}
+{"input": "Schedule consultation for weight management.", "expected_intent": "book_appointment"}
+{"input": "Book me for genetic counseling.", "expected_intent": "book_appointment"}
+{"input": "I need appointment for rehabilitation.", "expected_intent": "book_appointment"}
+{"input": "Schedule me for nutritionist consultation.", "expected_intent": "book_appointment"}
+{"input": "What time does the pediatric ward close?", "expected_intent": "get_schedule"}
+{"input": "When is the oncology department open?", "expected_intent": "get_schedule"}
+{"input": "What are the specimen collection timings?", "expected_intent": "get_schedule"}
+{"input": "When does the medical records office open?", "expected_intent": "get_schedule"}
+{"input": "What time does the social services close?", "expected_intent": "get_schedule"}
+{"input": "When is the patient education center open?", "expected_intent": "get_schedule"}
+{"input": "What are the volunteer services timings?", "expected_intent": "get_schedule"}
+{"input": "When does the gift shop operate?", "expected_intent": "get_schedule"}
+{"input": "What time does the transport service work?", "expected_intent": "get_schedule"}
+{"input": "When is the chaplaincy service available?", "expected_intent": "get_schedule"}
+{"input": "What services are in the intensive care unit?", "expected_intent": "listing_all"}
+{"input": "Show all facilities in the outpatient clinic.", "expected_intent": "listing_all"}
+{"input": "List departments in the specialty center.", "expected_intent": "listing_all"}
+{"input": "What's available in the wellness center?", "expected_intent": "listing_all"}
+{"input": "Show facilities in the sports medicine center.", "expected_intent": "listing_all"}
+{"input": "List all services in the pain management center.", "expected_intent": "listing_all"}
+{"input": "What departments are in the sleep center?", "expected_intent": "listing_all"}
+{"input": "Show all facilities in the wound care center.", "expected_intent": "listing_all"}
+{"input": "List services in the diabetes center.", "expected_intent": "listing_all"}
+{"input": "What's available in the heart center?", "expected_intent": "listing_all"}
+{"input": "What's the hospital director's contact?", "expected_intent": "get_contact_info"}
+{"input": "How do I reach the medical director?", "expected_intent": "get_contact_info"}
+{"input": "Give me the chief of staff's number.", "expected_intent": "get_contact_info"}
+{"input": "What's the nursing director's contact?", "expected_intent": "get_contact_info"}
+{"input": "How to contact the risk manager?", "expected_intent": "get_contact_info"}
+{"input": "Give me the infection control officer's number.", "expected_intent": "get_contact_info"}
+{"input": "What's the quality director's contact?", "expected_intent": "get_contact_info"}
+{"input": "How do I reach the ethics committee?", "expected_intent": "get_contact_info"}
+{"input": "Give me the research coordinator's number.", "expected_intent": "get_contact_info"}
+{"input": "What's the community relations contact?", "expected_intent": "get_contact_info"}
+{"input": "Where is the pediatric ICU?", "expected_intent": "find_facility"}
+{"input": "Find the interventional suite.", "expected_intent": "find_facility"}
+{"input": "Where is the genetic counseling office?", "expected_intent": "find_facility"}
+{"input": "Locate the pain management clinic.", "expected_intent": "find_facility"}
+{"input": "Where can I find the wound clinic?", "expected_intent": "find_facility"}
+{"input": "Show me the infusion center.", "expected_intent": "find_facility"}
+{"input": "Where is the ostomy clinic?", "expected_intent": "find_facility"}
+{"input": "Find the anticoagulation clinic.", "expected_intent": "find_facility"}
+{"input": "Where is the lymphedema clinic?", "expected_intent": "find_facility"}
+{"input": "Locate the continence clinic.", "expected_intent": "find_facility"}
+{"input": "Do you accept union insurance?", "expected_intent": "insurance_info"}
+{"input": "What about military insurance?", "expected_intent": "insurance_info"}
+{"input": "Is police insurance accepted?", "expected_intent": "insurance_info"}
+{"input": "Do you take railway medical insurance?", "expected_intent": "insurance_info"}
+{"input": "What about postal insurance?", "expected_intent": "insurance_info"}
+{"input": "Is teachers' insurance valid here?", "expected_intent": "insurance_info"}
+{"input": "Do you accept bank employee insurance?", "expected_intent": "insurance_info"}
+{"input": "What about government contractor insurance?", "expected_intent": "insurance_info"}
+{"input": "Is student insurance accepted?", "expected_intent": "insurance_info"}
+{"input": "Do you take overseas insurance?", "expected_intent": "insurance_info"}
+{"input": "Are there Braille elevator buttons?", "expected_intent": "accessibility_info"}
+{"input": "Is there accessible public transportation?", "expected_intent": "accessibility_info"}
+{"input": "Do you have mobility scooters?", "expected_intent": "accessibility_info"}
+{"input": "Are there accessible drinking fountains?", "expected_intent": "accessibility_info"}
+{"input": "Is there accessible outdoor seating?", "expected_intent": "accessibility_info"}
+{"input": "Do you have accessible vending machines?", "expected_intent": "accessibility_info"}
+{"input": "Are there visual fire alarms?", "expected_intent": "accessibility_info"}
+{"input": "Is there accessible patient transportation?", "expected_intent": "accessibility_info"}
+{"input": "Do you have adjustable examination chairs?", "expected_intent": "accessibility_info"}
+{"input": "Are there accessible family rooms?", "expected_intent": "accessibility_info"}
+{"input": "Cancel my stress test appointment.", "expected_intent": "cancel_appointment"}
+{"input": "I need to reschedule my biopsy.", "expected_intent": "cancel_appointment"}
+{"input": "Postpone my colonoscopy appointment.", "expected_intent": "cancel_appointment"}
+{"input": "Cancel my mammogram booking.", "expected_intent": "cancel_appointment"}
+{"input": "Reschedule my ultrasound appointment.", "expected_intent": "cancel_appointment"}
+{"input": "I want to cancel my MRI scan.", "expected_intent": "cancel_appointment"}
+{"input": "Change my CT scan date.", "expected_intent": "cancel_appointment"}
+{"input": "Cancel my echo test appointment.", "expected_intent": "cancel_appointment"}
+{"input": "Reschedule my EKG appointment.", "expected_intent": "cancel_appointment"}
+{"input": "I need to postpone my endoscopy.", "expected_intent": "cancel_appointment"}
+{"input": "How to reach by shared taxi?", "expected_intent": "get_directions"}
+{"input": "What's the nearest petrol pump?", "expected_intent": "get_directions"}
+{"input": "Directions from Sonipat city?", "expected_intent": "get_directions"}
+{"input": "How far from the main highway?", "expected_intent": "get_directions"}
+{"input": "Which entrance is for emergencies?", "expected_intent": "get_directions"}
+{"input": "Best route for ambulances?", "expected_intent": "get_directions"}
+{"input": "How to come from Panipat?", "expected_intent": "get_directions"}
+{"input": "What's the hospital's area code?", "expected_intent": "get_directions"}
+{"input": "Directions from Karnal?", "expected_intent": "get_directions"}
+{"input": "How to reach using local transport?", "expected_intent": "get_directions"}
+{"input": "Where is the fertility clinic?", "expected_intent": "find_department"}
+{"input": "Find the bariatric surgery department.", "expected_intent": "find_department"}
+{"input": "Where is the addiction medicine unit?", "expected_intent": "find_department"}
+{"input": "Locate the hospice care department.", "expected_intent": "find_department"}
+{"input": "Where can I find travel medicine?", "expected_intent": "find_department"}
+{"input": "Show me the wound care department.", "expected_intent": "find_department"}
+{"input": "Where is the hyperbaric medicine unit?", "expected_intent": "find_department"}
+{"input": "Find the clinical research department.", "expected_intent": "find_department"}
+{"input": "Where is the medical education department?", "expected_intent": "find_department"}
+{"input": "Locate the quality improvement office.", "expected_intent": "find_department"}
+{"input": "Where is the donation center?", "expected_intent": "get_location"}
+{"input": "How do I get to the meditation room?", "expected_intent": "get_location"}
+{"input": "Where can I find the patient relations office?", "expected_intent": "get_location"}
+{"input": "Show me the way to the wellness library.", "expected_intent": "get_location"}
+{"input": "Where is the health education center?", "expected_intent": "get_location"}
+{"input": "How to reach the simulation lab?", "expected_intent": "get_location"}
+{"input": "Where can I find the research labs?", "expected_intent": "get_location"}
+{"input": "Show me the location of the ethics office.", "expected_intent": "get_location"}
+{"input": "Where is the volunteer training room?", "expected_intent": "get_location"}
+{"input": "How to get to the staff cafeteria?", "expected_intent": "get_location"}
+{"input": "Do you have robotic surgery?", "expected_intent": "service_info"}
+{"input": "Is there a fertility treatment program?", "expected_intent": "service_info"}
+{"input": "Do you provide addiction counseling?", "expected_intent": "service_info"}
+{"input": "Is there a chronic pain program?", "expected_intent": "service_info"}
+{"input": "Do you have a diabetes management program?", "expected_intent": "service_info"}
+{"input": "Is there a heart failure clinic?", "expected_intent": "service_info"}
+{"input": "Do you provide wound care services?", "expected_intent": "service_info"}
+{"input": "Is there a geriatric assessment program?", "expected_intent": "service_info"}
+{"input": "Do you have a memory care clinic?", "expected_intent": "service_info"}
+{"input": "Is there a falls prevention program?", "expected_intent": "service_info"}
