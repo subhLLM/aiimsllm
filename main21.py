@@ -2,6 +2,7 @@ from fastapi import FastAPI, Request, Header
 from fastapi.responses import HTMLResponse, JSONResponse
 from fastapi.templating import Jinja2Templates
 from fastapi.middleware.cors import CORSMiddleware
+from fastapi.staticfiles import StaticFiles
 from pydantic import BaseModel
 import uvicorn
 import json
@@ -130,7 +131,7 @@ class NLUProcessor:
                         entities["lifts"].append(value)
                     elif "stair" in value.lower():
                         entities["stairs"].append(value)
-                    elif "washroom" in value.lower() or "restroom" in value.lower() or "toilet" in value.lower():
+                    elif "washroom" in value.lower() or "restroom" in value.lower() or "toilet" in value.lower() or "bathroom" in value.lower():
                         entities["washrooms"].append(value)
                     else:
                         entities["general_terms"].append(value) # Default for LOC if not specific
@@ -179,7 +180,7 @@ class NLUProcessor:
                             entities[key] = sorted(list(set(entities[key] + value_list)))
                 
                 # If still sparse, try rule-based as a final augmentation before returning
-                if not any(entities.get(k) for k in ["doctors", "departments", "rooms", "hospitals"]):
+                if not any(entities.get(k) for k in ["doctors", "departments", "rooms", "hospitals", "washrooms", "offices", "wards", "opd", "clinics"]):
                     logger.info(f"[NER] Still sparse, augmenting with rule-based NER.")
                     rule_based_entities = extract_entities_rule_based(query)
                     for key, value_list in rule_based_entities.items():
@@ -250,7 +251,7 @@ class ConversationMemory:
 
     def get_last_entity_by_priority(self, type_priority=None):
         if not type_priority:
-            type_priority = ["doctors", "departments", "rooms", "services", "buildings", "floors"]
+            type_priority = ["doctors", "departments", "rooms", "services", "buildings", "floors", "elevators", "opd", "ward", "office", "canteen"]
 
         # Support single string as input
         if isinstance(type_priority, str):
@@ -319,6 +320,8 @@ load_dotenv()
 
 # Initialize FastAPI app
 app = FastAPI()
+
+app.mount("/static", StaticFiles(directory="static"), name="static")
 
 # Custom in-memory user memory store
 user_memory_store = InMemoryUserMemoryStore()

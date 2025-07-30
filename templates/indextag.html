@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Aiims Jammu Building Assistant</title>
+    <link rel="icon" href="/static/favicon.ico" type="image/x-icon">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
     <style>
         body {
@@ -352,6 +353,23 @@
         const relatedQueriesContent = document.getElementById('relatedQueriesContent');
         const loadingIndicator = document.getElementById('loadingIndicator');
         const errorMessageDiv = document.getElementById('errorMessage');
+        // Scroll-to-bottom button setup
+        const scrollBtn = document.createElement('button');
+        scrollBtn.textContent = "↓";
+        scrollBtn.title = "Scroll to latest message";
+        scrollBtn.style.position = "fixed";
+        scrollBtn.style.bottom = "20px";
+        scrollBtn.style.right = "20px";
+        scrollBtn.style.zIndex = "999";
+        scrollBtn.style.padding = "10px";
+        scrollBtn.style.borderRadius = "50%";
+        scrollBtn.style.backgroundColor = "#007bff";
+        scrollBtn.style.color = "white";
+        scrollBtn.style.border = "none";
+        scrollBtn.style.cursor = "pointer";
+        scrollBtn.style.boxShadow = "0 2px 6px rgba(0,0,0,0.2)";
+        scrollBtn.style.display = "none"; // Hidden by default
+        document.body.appendChild(scrollBtn);
 
         function displayMessage(text, sender, isUser) {
             const messageWrapper = document.createElement('div');
@@ -617,6 +635,16 @@
         userQueryInput.focus();
         // Show tags on page load
         fetchAndShowTags();
+
+        // Show/hide scroll button based on scroll position
+        chatBox.addEventListener("scroll", () => {
+            const nearBottom = chatBox.scrollTop + chatBox.clientHeight >= chatBox.scrollHeight - 80;
+            scrollBtn.style.display = nearBottom ? "none" : "block";
+        });
+
+        scrollBtn.onclick = () => {
+            chatBox.scrollTop = chatBox.scrollHeight;
+        };
 
     </script>
 
