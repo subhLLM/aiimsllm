@@ -2299,6 +2299,9 @@ async def chat_endpoint(request: Request, chat_data: ChatInput, x_user_id: str =
 
     user_id = x_user_id or request.client.host
     response = chat(user_message, user_id)
+    print("post chat")
+    print(response)
+
     return JSONResponse(content=response)
 
 
