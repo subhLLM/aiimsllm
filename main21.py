@@ -1818,7 +1818,7 @@ def rewrite_query_with_memory(query, memory: ConversationMemory):
         "availability", "schedule", "timings", "hours", "visiting hours", "profile", "about",
         "department", "room", "floor"
     ]
-    follow_up_pattern_str = r"^(and|also|what about|how about|tell me more about|more info on)\b.*(" + "|".join(follow_up_keywords) + \
+    follow_up_pattern_str = r"^(and|then|also|what about|how about|tell me more about|more info on)\b.*(" + "|".join(follow_up_keywords) + \
                            r")?|^(their|his|her|its)\b.*(" + "|".join(follow_up_keywords) + \
                            r")|^\b(" + "|".join(follow_up_keywords) + r")\b"
     
@@ -1869,7 +1869,7 @@ def handle_small_talk(user_query, memory, user_id):
     convo_prompt = (
         f"You are a cheerful, friendly assistant at the Aiims building in Aiims Jammu.\n"
         f"The user is being casual, greeting, or saying goodbye.\n"
-        f"Reply naturally and warmly. Add emojis occasionally. Never repeat yourself.\n"
+        f"Reply naturally and warmly. Keep it under 20 words. You can use a single friendly emoji. Never repeat yourself.\n"
         f"\nUser: {user_query}\nAssistant:"
     )
 
