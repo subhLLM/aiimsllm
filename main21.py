@@ -535,7 +535,7 @@ class HospitalDataLoader:
                         departments.add(dept["departmentName"])
                     
                     # Services from departments
-                    for service_name in ensure_list(dept.get("relatedServices", [])):
+                    for service_name in ensure_list(dept.get("servicesOffered", [])):
                         services.add(service_name)
                     
                     # Doctors from departments
@@ -1185,7 +1185,7 @@ def refresh_faiss_and_bm25():
 
 def detect_query_complexity(query):
     query_lower = query.lower()
-    if any(conj in query_lower for conj in ["and", "or", "but also", "as well as", "both" " all similar"]) and len(query.split()) > 7: 
+    if any(conj in query_lower for conj in ["and", "or", "on any floor", "but also", "as well as", "both" " all similar"]) and len(query.split()) > 7: 
         return "complex"
     if any(word in query_lower for word in ["list all services", "all doctors in department", "explain treatment options", "compare procedures", "compare", "list all", "list some"]): 
         return "complex"
@@ -1287,11 +1287,11 @@ SYNONYM_MAP = {
     "contactno": ["contact number", "phone no", "phone number", "contact"],
     "timings": ["operating hours", "open hours", "availability", "schedule"],
     "operating hours": ["timings", "open hours", "availability", "schedule"],
-    "floor 0": ["ground floor", "gf"], "ground floor": ["floor 0", "gf"],
+    "floor 0": ["ground floor", "gf"], "ground floor": ["floor 0"],
     # Hospital specific
     "doctor": ["dr", "dr.", "physician", "consultant", "specialist", "professor"],
     "dr.": ["doctor", "physician", "consultant", "specialist", "professor"],
-    "opd": ["outpatient department", "out-patient department", "clinic"],
+    "opd": ["outpatient department", "out-patient department", "clinic", "department"],
     "er": ["emergency room", "emergency", "casualty"],
     "icu": ["intensive care unit"], "intensive care unit": ["icu"],
     "cardiology": ["heart department", "cardiac"],

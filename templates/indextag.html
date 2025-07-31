@@ -272,14 +272,6 @@
             border-radius: 8px;
             margin-top: 10px;
         }
-        #tagSuggestionsContainer {
-            margin-top: 10px;
-            background: #f9f9f9;
-            padding: 10px;
-            border-radius: 8px;
-            max-height: 150px;
-            overflow-y: auto;
-        }
 
         /* Typing indicator for bot response */
         .typing-indicator span {
@@ -318,10 +310,6 @@
 
         <div class="related-queries" id="relatedQueriesContainer" style="display:none;">
             <div id="relatedQueriesContent"></div>
-        </div>
-
-        <div class="related-queries" id="tagSuggestionsContainer" style="display:none;">
-            <div id="tagSuggestionsContent"></div>
         </div>
 
 
@@ -502,39 +490,6 @@
                 relatedQueriesContent.innerHTML = '';
             }
         }
-        // Show top hospital metadata tags dynamically
-        async function fetchAndShowTags() {
-            try {
-                const res = await fetch("/api/tag-counts");
-                if (!res.ok) throw new Error("Failed to load tags");
-                const data = await res.json();
-
-                const tagCounts = data.tag_counts || {};
-                const tagDiv = document.getElementById("tagSuggestionsContent");
-                tagDiv.innerHTML = '<h3>Popular Tags:</h3>';
-
-                const ul = document.createElement("ul");
-                Object.entries(tagCounts)
-                    .sort((a, b) => b[1] - a[1]) // sort descending
-                    .slice(0, 12)                // top 12 tags
-                    .forEach(([tag, count]) => {
-                        const li = document.createElement("li");
-                        li.textContent = `${tag.replace(/_/g, ' ')} (${count})`;
-                        li.onclick = () => {
-                            userQueryInput.value = tag.replace(/_/g, ' ');
-                            handleQuery(userQueryInput.value);
-                            document.getElementById("tagSuggestionsContainer").style.display = "none";
-                        };
-                        ul.appendChild(li);
-                    });
-
-                tagDiv.appendChild(ul);
-                document.getElementById("tagSuggestionsContainer").style.display = "block";
-
-            } catch (err) {
-                console.error("Tag fetch error:", err);
-            }
-        }
 
         async function handleQuery(query) {
             const metadataMarker = "###METADATA###";
@@ -603,7 +558,6 @@
                 userQueryInput.disabled = false;
                 userQueryInput.focus();
                 chatBox.scrollTop = chatBox.scrollHeight;
-                fetchAndShowTags(); // Update tag suggestions after every query
 
             }
         }
@@ -633,8 +587,6 @@
         
         // Initial focus
         userQueryInput.focus();
-        // Show tags on page load
-        fetchAndShowTags();
 
         // Show/hide scroll button based on scroll position
         chatBox.addEventListener("scroll", () => {
