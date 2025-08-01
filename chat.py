@@ -24,7 +24,7 @@ logger = logging.getLogger(__name__)
 data_loader = HospitalDataLoader()
 user_memory_store = InMemoryUserMemoryStore()
 nlu_processor = EnhancedNLUProcessor()
-retrieve = HybridRetriever()
+retriever = HybridRetriever()
 reranker = DocumentReranker()
 
 def classify_query_characteristics(query):
@@ -290,7 +290,7 @@ def chat(user_query: str, user_id: str):
     answer_style, answer_tone = detect_answer_style_and_tone(processed_query)
     logger.info(f"Response hints (hospital): length={response_length_hint}, style={answer_style}, tone={answer_tone}")
 
-    retrieved_docs = retrieve.hybrid_search(processed_query, k_simple=6, k_normal=10, k_complex=15)
+    retrieved_docs = retriever.hybrid_search(processed_query, k_simple=6, k_normal=10, k_complex=15)
     if not retrieved_docs:
         logger.warning(f"No documents retrieved for hospital query: {processed_query}")
         clarification_msg = "I couldn't find specific information for your query. "
@@ -344,7 +344,7 @@ def chat(user_query: str, user_id: str):
             clarification_msg = GoogleTranslator(source="en", target=detected_input_lang).translate(clarification_msg)
         return {"answer": clarification_msg}
 
-    top_bm25_docs_for_injection = retrieve.bm25_retrieve(processed_query, k=1)
+    top_bm25_docs_for_injection = retriever.bm25_retrieve(processed_query, k=1)
     if top_bm25_docs_for_injection:
         top_bm25_doc = top_bm25_docs_for_injection[0]
         if all(top_bm25_doc.page_content.strip() != doc.page_content.strip() for doc in final_docs_for_llm):

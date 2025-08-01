@@ -9,7 +9,7 @@ import sys
 import uvicorn
 import logging
 from data_loader import HospitalDataLoader
-from chat import retrieve
+from chat import retriever
 from memory import InMemoryUserMemoryStore
 from chat import chat
 
@@ -59,7 +59,7 @@ async def refresh_data_endpoint():
     logger.info("Hospital data refresh request received.")
     global data_loader
     data_loader = HospitalDataLoader()
-    retrieve.refresh_indexs()
+    retriever.refresh_indexs()
     logger.info("Hospital data and retrieval models refreshed successfully.")
     return {"message": "Hospital data and retrieval models refreshed successfully."}
 
