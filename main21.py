@@ -1018,7 +1018,7 @@ embedding_models = {
     "general": HuggingFaceEmbeddings(model_name="sentence-transformers/all-MiniLM-L6-v2"),
     "ranking": HuggingFaceEmbeddings(model_name="sentence-transformers/msmarco-bert-base-dot-v5"),
     "hybrid": HuggingFaceEmbeddings(model_name="BAAI/bge-m3"), 
-    "factual": HuggingFaceEmbeddings(model_name="intfloat/e5-large-v2"),
+    "factual": HuggingFaceEmbeddings(model_name="intfloat/e5-large-v2")
 }
 embedding = embedding_models["multilingual"]
 

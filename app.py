@@ -4,12 +4,16 @@ from fastapi.templating import Jinja2Templates
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.staticfiles import StaticFiles
 from pydantic import BaseModel
+import io
+import sys
 import uvicorn
 import logging
 from data_loader import HospitalDataLoader
-from chat import retriever
+from chat import chatbot_instance
 from memory import InMemoryUserMemoryStore
 from chat import chat
+
+console_stream = io.TextIOWrapper(sys.stdout.buffer, encoding='utf-8', line_buffering=True)
 
 # === LOGGING SETUP ===
 logging.basicConfig(
@@ -17,19 +21,22 @@ logging.basicConfig(
     format='%(asctime)s - %(levelname)s - %(module)s - %(funcName)s - %(message)s',
     handlers=[
         logging.FileHandler("app_debug.log", encoding='utf-8'),
-        logging.StreamHandler()
+        logging.StreamHandler(console_stream)
     ]
 )
 logger = logging.getLogger(__name__)
+
+retriever = chatbot_instance.retriever
+# Initialize data loader
+data_loader = HospitalDataLoader()
+# Custom in-memory user memory store
+user_memory_store = InMemoryUserMemoryStore()
 
 # Initialize FastAPI app
 app = FastAPI()
 
 # Mount static files
 app.mount("/static", StaticFiles(directory="static"), name="static")
-
-# Custom in-memory user memory store
-user_memory_store = InMemoryUserMemoryStore()
 
 # Add CORS middleware
 app.add_middleware(
@@ -39,9 +46,6 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"],
 )
-
-# Initialize data loader
-data_loader = HospitalDataLoader()
 
 # Templates
 templates = Jinja2Templates(directory="templates")

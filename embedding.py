@@ -9,7 +9,7 @@ embedding_models = {
     "general": HuggingFaceEmbeddings(model_name="sentence-transformers/all-MiniLM-L6-v2"),
     "ranking": HuggingFaceEmbeddings(model_name="sentence-transformers/msmarco-bert-base-dot-v5"),
     "hybrid": HuggingFaceEmbeddings(model_name="BAAI/bge-m3"),
-    "factual": HuggingFaceEmbeddings(model_name="intfloat/e5-large-v2"),
+    "factual": HuggingFaceEmbeddings(model_name="intfloat/e5-large-v2")
 }
 
 def get_embedding_model_for_query(query):
@@ -23,6 +23,6 @@ def get_embedding_model_for_query(query):
     if any(word in query_lower for word in ["list all", "compare services", "rank doctors", "compare", "best", "vs", "versus", "list of some", "list of any", "list of five", "list of top", "table"]):
         return embedding_models["ranking"]
     model = embedding_models["multilingual"]
-    
+
     logger.info(f"[Embedding Model Routing] Using: {model.model_name} for query: {query}")
     return model
