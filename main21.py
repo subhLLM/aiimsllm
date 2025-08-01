@@ -2069,31 +2069,6 @@ def chat(user_query: str, user_id: str):
 
     logger.info(f"[Entity Grounding] Checking for terms in docs: {entity_terms_to_check}")
 
-    missing_entities = []
-    for term in entity_terms_to_check:
-        found_in_docs = any(term in doc.page_content.lower() for doc in final_docs_for_llm)
-        if not found_in_docs:
-            missing_entities.append(term)
-
-    # If key terms are not found in the context, ask for clarification
-    if missing_entities and task_type != "general_information":
-        logger.warning(f"[Missing Context] Could not find these terms in retrieved docs: {missing_entities}")
-        missing_list = ", ".join(missing_entities)
-        clarification_msg = f"I couldn't find specific information about: {missing_list}. Could you clarify or rephrase your query?"
-
-        # Save to memory
-        conv_memory.history[-1]["assistant"] = clarification_msg
-        user_memory_store.save(user_id, conv_memory)
-
-        # Translate if needed
-        if target_lang_code and target_lang_code != "en":
-            clarification_msg = GoogleTranslator(source="en", target=target_lang_code).translate(clarification_msg)
-        elif detected_input_lang != "en":
-            clarification_msg = GoogleTranslator(source="en", target=detected_input_lang).translate(clarification_msg)
-
-        return {"answer": clarification_msg}
-            
-
     # Force-inject top BM25 document if different and seems relevant
     top_bm25_docs_for_injection = bm25_retriever_func(processed_query, k=1) # Get just the top 1
     if top_bm25_docs_for_injection:
@@ -2254,8 +2229,7 @@ Answer (provide only the answer, no preamble like "Here is the answer:") :
         "processing_time_seconds": round(processing_time, 2),
         "conversational_intent": convo_intent,
         "extracted_entities": extracted_query_entities,
-        "query_complexity": classify_query_characteristics(processed_query),
-        "missing_entities_in_docs": missing_entities
+        "query_complexity": classify_query_characteristics(processed_query)
     }
     return {"answer": final_response_text, "debug_info": debug_info}
 
