@@ -329,7 +329,7 @@ user_memory_store = InMemoryUserMemoryStore()
 # Add CORS middleware (adjust origins as needed)
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],  # You can replace "*" with specific domains
+    allow_origins=["*"],  # We can replace "*" with specific domains
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
@@ -2306,6 +2306,5 @@ async def chat_endpoint(request: Request, chat_data: ChatInput, x_user_id: str =
 
 
 if __name__ == "__main__":
-    import uvicorn
     # Consider using a different port if the RNI version might also run
     uvicorn.run("main21:app", host="0.0.0.0", port=5001, reload=True)

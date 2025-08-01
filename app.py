@@ -9,7 +9,7 @@ import sys
 import uvicorn
 import logging
 from data_loader import HospitalDataLoader
-from chat import chatbot_instance
+from chat import retrieve
 from memory import InMemoryUserMemoryStore
 from chat import chat
 
@@ -26,17 +26,14 @@ logging.basicConfig(
 )
 logger = logging.getLogger(__name__)
 
-retriever = chatbot_instance.retriever
-# Initialize data loader
-data_loader = HospitalDataLoader()
-# Custom in-memory user memory store
-user_memory_store = InMemoryUserMemoryStore()
-
 # Initialize FastAPI app
 app = FastAPI()
 
 # Mount static files
 app.mount("/static", StaticFiles(directory="static"), name="static")
+
+# Custom in-memory user memory store
+user_memory_store = InMemoryUserMemoryStore()
 
 # Add CORS middleware
 app.add_middleware(
@@ -46,6 +43,9 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"],
 )
+
+# Initialize data loader
+data_loader = HospitalDataLoader()
 
 # Templates
 templates = Jinja2Templates(directory="templates")
@@ -59,7 +59,7 @@ async def refresh_data_endpoint():
     logger.info("Hospital data refresh request received.")
     global data_loader
     data_loader = HospitalDataLoader()
-    retriever.refresh_indexs()
+    retrieve.refresh_indexs()
     logger.info("Hospital data and retrieval models refreshed successfully.")
     return {"message": "Hospital data and retrieval models refreshed successfully."}
 
